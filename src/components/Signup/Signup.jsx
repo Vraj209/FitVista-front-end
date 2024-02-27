@@ -22,8 +22,8 @@ function Signup() {
               <option value="" disabled selected>
                 Select your role
               </option>
-              <option value="trainer">Trainer</option>
               <option value="trainee">Trainee</option>
+              <option value="trainer">Trainer</option>
               <option value="admin">Admin</option>
             </select>
           </div>
