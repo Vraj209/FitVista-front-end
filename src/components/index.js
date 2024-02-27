@@ -1,3 +1,4 @@
 import Signin from "./Signin/Signin";
 import Signup from "./Signup/Signup";
-export { Signin, Signup };
+import ChangePassword from "./ChangePassword/ChangePassword";
+export { Signin, Signup ,ChangePassword};

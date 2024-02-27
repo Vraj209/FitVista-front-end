@@ -6,11 +6,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import PasswordChange from "./pages/PasswordChange";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
   { path: "/signin", element: <Login /> },
   { path: "/signup", element: <Register /> },
+  { path: "/changePassword", element: <PasswordChange /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
