@@ -1,0 +1,56 @@
+.registerContainer {
+  display: flex;
+  height: 100vh; /* Full height of the viewport */
+}
+
+.imageSide {
+  background-image: url("./signup.jpg");
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+}
+
+.registerSide {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.registerForm {
+  max-width: 400px;
+  width: 100%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.inputField input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff; /* A gym theme color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.signinText {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signinText a {
+  color: #007bff;
+  text-decoration: none;
+}
