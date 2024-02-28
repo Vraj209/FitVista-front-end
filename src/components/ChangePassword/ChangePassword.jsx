@@ -3,7 +3,7 @@ import "./ChangePassword.css";
 function ChangePassword() {
   return (
     <div className="ChangePasswordContainer">
-      <div className="imgSide"></div>
+      <div className="changePasswordImgSide"></div>
       <div className="ChangePasswordSide">
         <form className="ChangePasswordForm">
           <h2 className="text-3xl font-semibold">Change Password</h2>
