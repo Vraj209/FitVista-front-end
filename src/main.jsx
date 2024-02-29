@@ -9,6 +9,8 @@ import Register from "./pages/Register";
 import PasswordChange from "./pages/PasswordChange";
 import SetNewPassword from "./pages/SetNewPassword";
 import { Toaster } from "react-hot-toast";
+import DashboardPage from "./pages/DashboardPage";
+import { AddBlog, AddProduct, AllBlogs, AllProductList } from "./components";
 
 const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
@@ -16,6 +18,14 @@ const router = createBrowserRouter([
   { path: "/signin", element: <Login /> },
   { path: "/changePassword", element: <PasswordChange /> },
   { path: "/forgotPassword", element: <SetNewPassword /> },
+  {
+    path: "/dashboard",
+    element: <DashboardPage />,
+  },
+  { path: "/addProduct", element: <AddProduct /> },
+  { path: "/allProduct", element: <AllProductList /> },
+  { path: "/addBlog", element: <AddBlog /> },
+  { path: "/allBlogs", element: <AllBlogs /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
