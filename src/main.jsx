@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PasswordChange from "./pages/PasswordChange";
 import SetNewPassword from "./pages/SetNewPassword";
+import { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
@@ -19,6 +20,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={router}></RouterProvider>
   </React.StrictMode>
 );

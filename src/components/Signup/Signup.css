@@ -1,3 +1,10 @@
+.react-hot-toast-container {
+  z-index: 9999; /* This will ensure the toast is above other elements */
+  position: fixed; /* This will position the toast relative to the viewport */
+  top: 0; /* This will position the toast at the top of the viewport */
+  right: 0; /* This will position the toast at the right of the viewport */
+}
+
 .registerContainer {
   display: flex;
   height: 100vh; /* Full height of the viewport */
