@@ -12,8 +12,8 @@ import { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
-  { path: "/signin", element: <Login /> },
   { path: "/signup", element: <Register /> },
+  { path: "/signin", element: <Login /> },
   { path: "/changePassword", element: <PasswordChange /> },
   { path: "/forgotPassword", element: <SetNewPassword /> },
 ]);
