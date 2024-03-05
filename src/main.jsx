@@ -11,6 +11,7 @@ import SetNewPassword from "./pages/SetNewPassword";
 import { Toaster } from "react-hot-toast";
 import DashboardPage from "./pages/DashboardPage";
 import { AddBlog, AddProduct, AllBlogs, AllProductList } from "./components";
+import EditProductPage from "./pages/EditProductPage";
 
 const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
   { path: "/allProduct", element: <AllProductList /> },
   { path: "/addBlog", element: <AddBlog /> },
   { path: "/allBlogs", element: <AllBlogs /> },
+  { path: "/editProduct/:id", element: <EditProductPage /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

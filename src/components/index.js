@@ -9,4 +9,18 @@ import AllProductList from "./Product/AllProductList.jsx";
 import AddProduct from "./Product/AddProduct.jsx";
 import AddBlog from "./Blog/AddBlog.jsx";
 import AllBlogs from "./Blog/AllBlogs.jsx";
-export { Signin, Signup, ChangePassword, ForgotPassword, Home, Sidebar, Dashboard, AllProductList, AddProduct, AddBlog, AllBlogs};
+import EditProduct from "./Product/EditProduct.jsx";
+export {
+  Signin,
+  Signup,
+  ChangePassword,
+  ForgotPassword,
+  Home,
+  Sidebar,
+  Dashboard,
+  AllProductList,
+  AddProduct,
+  AddBlog,
+  AllBlogs,
+  EditProduct,
+};

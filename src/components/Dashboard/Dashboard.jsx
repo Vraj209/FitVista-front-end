@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Sidebar } from "../index";
 import { Link } from "react-router-dom";
+import axios from "axios";
 function Dashboard() {
+  const [numberOfProduct, setNumberOfProduct] = useState();
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:3000/api/v1/product/getProducts`
+        );
+        setNumberOfProduct(response.data.products.length);
+      } catch (error) {
+        console.log("Error in getting product", error);
+      }
+    };
+    fetchProduct();
+  }, [numberOfProduct]);
   return (
     <div>
       <Sidebar />
@@ -15,7 +30,9 @@ function Dashboard() {
           </div>
           <div className="grid grid-cols-3 gap-4 mb-4">
             <div className="flex flex-col items-center justify-center h-24 rounded bg-gray-50 dark:bg-orange-400">
-              <p className="text-3xl  dark:text-white py-2">2</p>
+              <p className="text-3xl  dark:text-white py-2">
+                {numberOfProduct}
+              </p>
               <p className="text-2xl text-gray-400 dark:text-white">
                 Online Products
               </p>
