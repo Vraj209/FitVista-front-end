@@ -10,6 +10,8 @@ import AddProduct from "./Product/AddProduct.jsx";
 import AddBlog from "./Blog/AddBlog.jsx";
 import AllBlogs from "./Blog/AllBlogs.jsx";
 import EditProduct from "./Product/EditProduct.jsx";
+import Ecommerce from "./Ecommerce/Ecommerce.jsx";
+import ViewProduct from "./Ecommerce/ViewProduct.jsx";
 export {
   Signin,
   Signup,
@@ -23,4 +25,6 @@ export {
   AddBlog,
   AllBlogs,
   EditProduct,
+  Ecommerce,
+  ViewProduct,
 };

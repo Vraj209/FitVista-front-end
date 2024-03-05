@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Sidebar } from "../index";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function EditProduct() {
   const { id } = useParams();
   const [product, setProduct] = useState({});
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -45,8 +46,7 @@ function EditProduct() {
       );
       console.log("Response from deleting product", response.data);
       alert("Product deleted successfully");
-      // Redirect to products page or somewhere else
-      // history.push('/products');
+      navigate("/allProduct");
     } catch (error) {
       console.log("Error in deleting product", error);
     }

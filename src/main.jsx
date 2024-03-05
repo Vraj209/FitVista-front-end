@@ -12,6 +12,8 @@ import { Toaster } from "react-hot-toast";
 import DashboardPage from "./pages/DashboardPage";
 import { AddBlog, AddProduct, AllBlogs, AllProductList } from "./components";
 import EditProductPage from "./pages/EditProductPage";
+import EcommercePage from "./pages/EcommercePage";
+import ViewProductPage from "./pages/ViewProductPage";
 
 const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
@@ -28,6 +30,8 @@ const router = createBrowserRouter([
   { path: "/addBlog", element: <AddBlog /> },
   { path: "/allBlogs", element: <AllBlogs /> },
   { path: "/editProduct/:id", element: <EditProductPage /> },
+  { path: "/viewProduct/:id", element: <ViewProductPage /> },
+  { path: "/ecommerce", element: <EcommercePage /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
