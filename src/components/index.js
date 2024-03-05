@@ -12,6 +12,7 @@ import AllBlogs from "./Blog/AllBlogs.jsx";
 import EditProduct from "./Product/EditProduct.jsx";
 import Ecommerce from "./Ecommerce/Ecommerce.jsx";
 import ViewProduct from "./Ecommerce/ViewProduct.jsx";
+import UserDashboard from "./UserDashboard/UserDashboard.jsx";
 export {
   Signin,
   Signup,
@@ -27,4 +28,5 @@ export {
   EditProduct,
   Ecommerce,
   ViewProduct,
+  UserDashboard,
 };

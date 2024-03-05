@@ -14,6 +14,8 @@ import { AddBlog, AddProduct, AllBlogs, AllProductList } from "./components";
 import EditProductPage from "./pages/EditProductPage";
 import EcommercePage from "./pages/EcommercePage";
 import ViewProductPage from "./pages/ViewProductPage";
+import UserDashboardPage from "./pages/UserDashboardPage";
+
 
 const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
@@ -32,10 +34,14 @@ const router = createBrowserRouter([
   { path: "/editProduct/:id", element: <EditProductPage /> },
   { path: "/viewProduct/:id", element: <ViewProductPage /> },
   { path: "/ecommerce", element: <EcommercePage /> },
+  { path: "/UserDashboard", element: <UserDashboardPage /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    {/* <UserProvider> */}
+
     <RouterProvider router={router}></RouterProvider>
+    {/* </UserProvider> */}
   </React.StrictMode>
 );

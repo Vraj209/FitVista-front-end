@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import "./Signin.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+// import { useUser } from "../../context/UserContext";
 
 function Signin() {
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
+  // const { login } = useUser();
   const [disable, setDisable] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -21,6 +23,8 @@ function Signin() {
         user
       );
       console.log("Response from signin", response.data);
+      // const { token, user: userData } = response.data;
+      // login({ token, userData });
       setLoading(false);
       navigate("/");
     } catch (error) {
