@@ -23,7 +23,7 @@ function Ecommerce() {
 
   return (
     <div className="flex">
-      <Sidebar />
+      {/* <Sidebar /> */}
       <div className="flex-grow p-5 sm:ml-64 bg-gray-100 min-h-screen">
         <div className="flex items-center justify-center h-48 mb-8 rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-xl">
           <p className="text-4xl font-bold text-white">Ecommerce Store</p>

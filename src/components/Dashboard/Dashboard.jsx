@@ -5,6 +5,11 @@ import axios from "axios";
 
 function Dashboard() {
   const [numberOfProduct, setNumberOfProduct] = useState();
+  const [numberOfActiveUser, setNumberOfActiveUser] = useState();
+  const [numberOfTotalUsers, setNumberOfTotalUsers] = useState();
+  const [numberOfBlogs, setNumberOfBlogs] = useState();
+  const [activeTrainer, setActiveTrainer] = useState();
+  const [totalTrainer, setTotalTrainer] = useState();
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -18,6 +23,51 @@ function Dashboard() {
       }
     };
     fetchProduct();
+  }, []);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const response = await axios.get(
+        `http://localhost:3000/api/v1/users/totalUser`
+      );
+      let users = response.data.users;
+
+      setNumberOfTotalUsers(
+        users.filter((user) => {
+          return user.role === "trainee";
+        }).length
+      );
+      setNumberOfActiveUser(
+        users.filter((user) => {
+          return user.role == "Trainee" && user.status === "active";
+        }).length
+      );
+      setActiveTrainer(
+        users.filter((user) => {
+          return user.role === "Trainer" && user.status === "active";
+        }).length
+      );
+      setTotalTrainer(
+        users.filter((user) => {
+          return user.role === "Trainer";
+        }).length
+      );
+    };
+    fetchUser();
+  }, []);
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:3000/api/v1/blog/getBlogs`
+        );
+        let blogs = response.data.blogs;
+        setNumberOfBlogs(blogs.length);
+      } catch (error) {
+        console.log("Error in getting blogs", error);
+      }
+    };
+    fetchBlogs();
   }, []);
 
   return (
@@ -60,7 +110,9 @@ function Dashboard() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
             <div className="flex flex-col items-center justify-center h-24 rounded-lg bg-purple-200 shadow">
-              <p className="text-3xl font-semibold text-gray-800 py-2">0</p>
+              <p className="text-3xl font-semibold text-gray-800 py-2">
+                {numberOfBlogs}
+              </p>
               <p className="text-xl text-gray-600">Published Blogs</p>
             </div>
             <div className="flex items-center justify-center h-24 rounded-lg bg-pink-200 shadow">
@@ -85,11 +137,22 @@ function Dashboard() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
             <div className="flex flex-col items-center justify-center h-24 rounded-lg bg-lime-200 shadow">
-              <p className="text-3xl font-semibold text-gray-800 py-2">0</p>
+              <p className="text-3xl font-semibold text-gray-800 py-2">
+                {numberOfActiveUser}
+              </p>
               <p className="text-xl text-gray-600">Active User</p>
             </div>
+            <div className="flex flex-col items-center justify-center h-24 rounded-lg bg-yellow-200 shadow">
+              <p className="text-3xl font-semibold text-gray-800 py-2">
+                {numberOfTotalUsers}
+              </p>
+              <p className="text-xl text-gray-600">Total User</p>
+            </div>
             <div className="flex items-center justify-center h-24 rounded-lg bg-emerald-200 shadow">
-              <Link to="#" className="text-xl text-emerald-600 font-semibold">
+              <Link
+                to="/userData"
+                className="text-xl text-emerald-600 font-semibold"
+              >
                 User Data
               </Link>
             </div>
@@ -99,11 +162,22 @@ function Dashboard() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
             <div className="flex flex-col items-center justify-center h-24 rounded-lg bg-amber-200 shadow">
-              <p className="text-3xl font-semibold text-gray-800 py-2">0</p>
+              <p className="text-3xl font-semibold text-gray-800 py-2">
+                {activeTrainer}
+              </p>
               <p className="text-xl text-gray-600">Active Trainer</p>
             </div>
+            <div className="flex flex-col items-center justify-center h-24 rounded-lg bg-amber-200 shadow">
+              <p className="text-3xl font-semibold text-gray-800 py-2">
+                {totalTrainer}
+              </p>
+              <p className="text-xl text-gray-600">Total Trainer</p>
+            </div>
             <div className="flex items-center justify-center h-24 rounded-lg bg-sky-200 shadow">
-              <Link to="#" className="text-xl text-sky-600 font-semibold">
+              <Link
+                to="/trainerData"
+                className="text-xl text-sky-600 font-semibold"
+              >
                 Trainer Data
               </Link>
             </div>

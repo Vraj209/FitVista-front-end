@@ -25,7 +25,7 @@ function Signup() {
         user
       );
       console.log("Response from signup", response.data);
-      toast.success("Signup Successfull");
+      toast.success("Signup Successfully");
       setLoading(false);
       navigate("/signin");
     } catch (error) {

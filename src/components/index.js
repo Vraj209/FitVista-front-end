@@ -13,6 +13,11 @@ import EditProduct from "./Product/EditProduct.jsx";
 import Ecommerce from "./Ecommerce/Ecommerce.jsx";
 import ViewProduct from "./Ecommerce/ViewProduct.jsx";
 import UserDashboard from "./UserDashboard/UserDashboard.jsx";
+import UserData from "./Dashboard/User/UserData.jsx";
+import TrainerData from "./Dashboard/Trainer/TrainerData.jsx";
+import BlogList from "./Blog/BlogList.jsx";
+import TrainerDashboard from "./TrainerDashboard/TrainerDashboard.jsx";
+import EditBlog from "./Blog/EditBlog.jsx";
 export {
   Signin,
   Signup,
@@ -29,4 +34,9 @@ export {
   Ecommerce,
   ViewProduct,
   UserDashboard,
+  UserData,
+  TrainerData,
+  BlogList,
+  TrainerDashboard,
+  EditBlog,
 };
