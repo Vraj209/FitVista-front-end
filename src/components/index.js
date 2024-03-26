@@ -20,6 +20,9 @@ import TrainerDashboard from "./TrainerDashboard/TrainerDashboard.jsx";
 import EditBlog from "./Blog/EditBlog.jsx";
 import Services from "./HomePage/Services.jsx";
 import Cart from "./Ecommerce/Cart.jsx";
+import ViewUser from "./Dashboard/User/ViewUser.jsx";
+import AboutUs from "./AboutUs/AboutUs.jsx";
+import ContactUs from "./ContactUs/ContactUs.jsx";
 export {
   Signin,
   Signup,
@@ -43,4 +46,7 @@ export {
   EditBlog,
   Services,
   Cart,
+  ViewUser,
+  AboutUs,
+  ContactUs,
 };

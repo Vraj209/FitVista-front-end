@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../../Sidebar/Sidebar";
 import axios from "axios";
+import { useNavigation, Link } from "react-router-dom";
 
 function UserData() {
   const [users, setUsers] = useState([]);
@@ -34,7 +35,10 @@ function UserData() {
       console.error("Error updating user status:", error);
     }
   };
-
+  const navigate = useNavigation();
+  const toggleUser = (userId) => {
+    navigate(`/user/${userId}`);
+  };
   return (
     <div className="min-h-screen bg-white">
       <Sidebar />
@@ -64,7 +68,10 @@ function UserData() {
                     Status
                   </th>
                   <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                    Action
+                    Status Update
+                  </th>
+                  <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                    View Details
                   </th>
                 </tr>
               </thead>
@@ -81,17 +88,29 @@ function UserData() {
                       {user.role}
                     </td>
                     <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                      {user.isActive ? "Active" : "Inactive"}
+                      {user.status == "active" ? "active" : "inactive"}
                     </td>
                     <td className="px-2 py-2 border-b border-gray-200 bg-white text-sm">
                       <button
                         className={` rounded ${
-                          user.isActive ? "bg-red-500" : "bg-green-500"
+                          user.status == "active"
+                            ? "bg-red-500"
+                            : "bg-green-500"
                         } text-white focus:outline-none focus:shadow-outline`}
                         onClick={() => toggleUserStatus(user.id, user.isActive)}
                       >
-                        {user.isActive ? "Deactivate" : "Activate"}
+                        {user.status == "active" ? "Deactivate" : "Activate"}
                       </button>
+                    </td>
+                    <td className="px-2 py-2 border-b border-gray-200 bg-white text-sm">
+                      <Link to={`/user/${user._id}`}>
+                        <button
+                          className=" text-white focus:outline-none focus:shadow-outline bg-blue-500"
+                          onClick={() => toggleUser(user._id)}
+                        >
+                          View Details
+                        </button>
+                      </Link>
                     </td>
                   </tr>
                 ))}

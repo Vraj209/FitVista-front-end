@@ -32,7 +32,7 @@ function Home() {
             <a href="/aboutUs" className="text-lg">
               About Us
             </a>
-            <a href="/aboutUs" className="text-lg">
+            <a href="/contactUs" className="text-lg">
               Contact Us
             </a>
             <a href="/dashboard" className="text-lg">
@@ -144,14 +144,13 @@ function Home() {
             <div className="w-full md:w-1/3 px-4">
               <div className="p-6 rounded-lg shadow-lg bg-gradient-to-tr from-blue-500 to-blue-300 hover:shadow-xl transition duration-500 transform hover:scale-105">
                 <h3 className="text-xl font-semibold text-white mb-2">
-                  Budget Plan
+                  Silver Membership
                 </h3>
                 <p className="text-md text-blue-100 mb-4">
                   Start your fitness journey with essential features.
                 </p>
                 <ul className="text-sm text-blue-100 mb-6">
                   <li>✔ Basic workout library</li>
-                  <li>✔ Weekly nutrition tips</li>
                   <li>✔ Community access</li>
                 </ul>
                 <p className="text-lg font-bold text-white mb-4">$19 / month</p>
@@ -161,46 +160,23 @@ function Home() {
               </div>
             </div>
 
-            {/* Standard Membership Plan */}
+            {/* Gold Membership Plan */}
             <div className="w-full md:w-1/3 px-4">
               <div className="p-6 rounded-lg shadow-lg bg-gradient-to-tr from-green-500 to-green-300 hover:shadow-xl transition duration-500 transform hover:scale-105">
                 <h3 className="text-xl font-semibold text-white mb-2">
-                  Standard Plan
+                  Gold Membership
                 </h3>
                 <p className="text-md text-green-100 mb-4">
                   Everything in Budget, plus more advanced features.
                 </p>
                 <ul className="text-sm text-green-100 mb-6">
                   <li>✔ Unlimited class access</li>
-                  <li>✔ Monthly nutrition plans</li>
+                  <li>✔ One to one coaching plans</li>
                   <li>✔ Monthly coaching sessions</li>
                   <li>✔ 10% off on products</li>
                 </ul>
                 <p className="text-lg font-bold text-white mb-4">$49 / month</p>
                 <button className="mt-4 px-4 py-2 bg-white text-green-500 font-bold rounded hover:bg-gray-100 transition-colors duration-300">
-                  Get Started
-                </button>
-              </div>
-            </div>
-
-            {/* Exclusive Membership Plan */}
-            <div className="w-full md:w-1/3 px-4">
-              <div className="p-6 rounded-lg shadow-lg bg-gradient-to-tr from-purple-500 to-purple-300 hover:shadow-xl transition duration-500 transform hover:scale-105">
-                <h3 className="text-xl font-semibold text-white mb-2">
-                  Exclusive Plan
-                </h3>
-                <p className="text-md text-purple-100 mb-4">
-                  All the perks of Standard, plus premium benefits.
-                </p>
-                <ul className="text-sm text-purple-100 mb-6">
-                  <li>✔ Weekly personal coaching</li>
-                  <li>✔ Customized plans</li>
-                  <li>✔ Premium class access</li>
-                  <li>✔ 20% off on all products</li>
-                  <li>✔ Priority support</li>
-                </ul>
-                <p className="text-lg font-bold text-white mb-4">$99 / month</p>
-                <button className="mt-4 px-4 py-2 bg-white text-purple-500 font-bold rounded hover:bg-gray-100 transition-colors duration-300">
                   Get Started
                 </button>
               </div>

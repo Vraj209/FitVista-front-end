@@ -45,8 +45,10 @@ function EditBlog() {
     formData.append("description", description);
     if (image) formData.append("image", image);
 
+    console.log("Form data before submission:", formData); // Log FormData object
+
     try {
-      await axios.put(
+      const response = await axios.put(
         `http://localhost:3000/api/v1/blog/updateBlog/${id}`,
         formData,
         {
@@ -55,11 +57,11 @@ function EditBlog() {
           },
         }
       );
+
+      console.log("Response from server:", response.data); // Log response from server
       alert("Blog updated successfully");
-      navigation.goBack(); // Navigate to the blog list or home page after successful update
     } catch (error) {
-      console.error("Error updating blog", error);
-      alert("Failed to update the blog");
+      console.error("Error updating blog", error); // Log errors to console
     }
   };
 
@@ -70,11 +72,10 @@ function EditBlog() {
           `http://localhost:3000/api/v1/blog/deleteBlog/${id}`
         );
         alert("Blog deleted successfully");
-        navigation.goBack(); // Navigate to the blog list or home page after successful update
+        navigation("/dashboard"); // Navigate to the blog list or home page after successful update
         // Navigate away after deletion
       } catch (error) {
         console.error("Error deleting blog", error);
-        alert("Failed to delete the blog");
       }
     }
   };
@@ -85,8 +86,6 @@ function EditBlog() {
       <div className="flex flex-col flex-grow ml-64 p-8">
         <h1 className="text-2xl font-semibold text-gray-800">Edit Blog</h1>
         <form onSubmit={handleSubmit} className="mt-4">
-          {/* Form fields here, similar to AddBlog.js */}
-          {/* Example: Title Input */}
           <div className="mb-4">
             <label
               htmlFor="title"
@@ -167,21 +166,20 @@ function EditBlog() {
           </div>
           {/* Include other fields and Editor component for description similar to AddBlog */}
           <div className="flex gap-2">
-          <button
-            type="submit"
-            className="  w-1/6 justify-center  py-2  text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-          >
-            Update Blog
-          </button>
-          <button
-            type="button"
-            onClick={handleDelete}
-            className=" w-1/6 justify-center  py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-          >
-            Delete Blog
-          </button>
+            <button
+              type="submit"
+              className="  w-1/6 justify-center  py-2  text-sm font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
+              Update Blog
+            </button>
+            <button
+              type="button"
+              onClick={handleDelete}
+              className=" w-1/6 justify-center  py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+            >
+              Delete Blog
+            </button>
           </div>
-        
         </form>
       </div>
     </div>

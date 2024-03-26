@@ -1,11 +1,90 @@
 import React from "react";
-import Sidebar from "../Sidebar/Sidebar";
+import { Link } from "react-router-dom";
+import Sidebar from "../Sidebar/Sidebar"; // Make sure the path is correct based on your project structure
 
 function TrainerDashboard() {
   return (
-    <div>
-      <Sidebar/>
-      <h1>this is a trainer dashboard</h1>
+    <div className="min-h-screen bg-white">
+      <Sidebar />
+      <div className="p-4 sm:ml-64">
+        <div className="p-4 rounded-lg shadow-md bg-gray-50 ">
+          <div className="flex items-center justify-center h-48 mb-4 rounded-lg bg-blue-100">
+            <p className="text-5xl font-bold text-gray-800">
+              Trainer Dashboard
+            </p>
+          </div>
+
+          <div className="py-3 mb-2">
+            <p className="text-3xl font-semibold text-gray-800">
+              Welcome, Trainer!
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+            {/* Upload Video Card */}
+            <div className="flex flex-col items-center justify-center h-24 rounded-lg bg-blue-200 shadow">
+              <Link
+                to="/upload-video"
+                className="text-2xl font-semibold text-gray-800 py-2 hover:text-gray-600"
+              >
+                Upload Video
+              </Link>
+            </div>
+
+            {/* Total Trainee Card */}
+            <div className="flex flex-col items-center justify-center h-24 rounded-lg bg-green-200 shadow">
+              <p className="text-3xl font-semibold text-gray-800 py-2">150</p>
+              <p className="text-xl text-gray-600">Total Trainees</p>
+            </div>
+          </div>
+
+          {/* Trainer Info */}
+          <div className="bg-white  p-4 rounded-lg shadow-md">
+            <div className="mb-4">
+              <label
+                htmlFor="first-name"
+                className="block text-sm font-medium text-gray-700"
+              >
+                First Name
+              </label>
+              <input
+                type="text"
+                name="first-name"
+                id="first-name"
+                className="mt-1 p-2 w-full rounded-md border-gray-300 shadow-sm"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="last-name"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Last Name
+              </label>
+              <input
+                type="text"
+                name="last-name"
+                id="last-name"
+                className="mt-1 p-2 w-full rounded-md border-gray-300 shadow-sm"
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Email Address
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                className="mt-1 p-2 w-full rounded-md border-gray-300 shadow-sm"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -30,6 +30,7 @@ function Dashboard() {
         `http://localhost:3000/api/v1/users/totalUser`
       );
       let users = response.data.users;
+      console.log(users);
       setNumberOfTotalUsers(
         users.filter((user) => {
           return user.role === "trainee";
@@ -37,17 +38,17 @@ function Dashboard() {
       );
       setNumberOfActiveUser(
         users.filter((user) => {
-          return user.role == "Trainee" && user.status === "active";
+          return user.role == "trainee" && user.status === "active";
         }).length
       );
       setActiveTrainer(
         users.filter((user) => {
-          return user.role === "Trainer" && user.status === "active";
+          return user.role === "trainer" && user.status === "active";
         }).length
       );
       setTotalTrainer(
         users.filter((user) => {
-          return user.role === "Trainer";
+          return user.role === "trainer";
         }).length
       );
     };

@@ -11,16 +11,19 @@ import SetNewPassword from "./pages/SetNewPassword";
 import { Toaster } from "react-hot-toast";
 import DashboardPage from "./pages/DashboardPage";
 import {
+  AboutUs,
   AddBlog,
   AddProduct,
   AllBlogs,
   AllProductList,
   Cart,
+  ContactUs,
   EditBlog,
   Services,
   TrainerDashboard,
   TrainerData,
   UserData,
+  ViewUser,
 } from "./components";
 import EditProductPage from "./pages/EditProductPage";
 import EcommercePage from "./pages/EcommercePage";
@@ -46,8 +49,9 @@ const router = createBrowserRouter([
   { path: "/editProduct/:id", element: <EditProductPage /> },
   { path: "/viewProduct/:id", element: <ViewProductPage /> },
   { path: "/ecommerce", element: <EcommercePage /> },
-  { path: "/ecommerce/cart", element: <Cart/>},
+  { path: "/ecommerce/cart", element: <Cart /> },
   { path: "/userData", element: <UserData /> },
+  { path: "/user/:id", element: <ViewUser /> },
   { path: "/trainerData", element: <TrainerData /> },
   { path: "/UserDashboard", element: <UserDashboardPage /> },
   { path: "/trainerDashboard", element: <TrainerDashboard /> },
@@ -56,11 +60,12 @@ const router = createBrowserRouter([
   { path: "/blog/:id", element: <ViewBlog /> },
   {
     path: "/edit-blog/:id",
-    element: <EditBlog/>,
+    element: <EditBlog />,
   },
   // services
-  { path: "/services", element: <Services />}
-  
+  { path: "/services", element: <Services /> },
+  { path: "/aboutUs", element: <AboutUs /> },
+  { path: "/contactUs", element: <ContactUs /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
