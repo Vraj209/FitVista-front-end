@@ -4,7 +4,7 @@ import Sidebar from "../Sidebar/Sidebar";
 function TrainerDashboard() {
   return (
     <div>
-      {/* <Sidebar/> */}
+      <Sidebar/>
       <h1>this is a trainer dashboard</h1>
     </div>
   );

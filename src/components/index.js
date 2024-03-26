@@ -18,6 +18,8 @@ import TrainerData from "./Dashboard/Trainer/TrainerData.jsx";
 import BlogList from "./Blog/BlogList.jsx";
 import TrainerDashboard from "./TrainerDashboard/TrainerDashboard.jsx";
 import EditBlog from "./Blog/EditBlog.jsx";
+import Services from "./HomePage/Services.jsx";
+import Cart from "./Ecommerce/Cart.jsx";
 export {
   Signin,
   Signup,
@@ -39,4 +41,6 @@ export {
   BlogList,
   TrainerDashboard,
   EditBlog,
+  Services,
+  Cart,
 };

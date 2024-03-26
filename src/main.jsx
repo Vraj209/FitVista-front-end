@@ -15,7 +15,9 @@ import {
   AddProduct,
   AllBlogs,
   AllProductList,
+  Cart,
   EditBlog,
+  Services,
   TrainerDashboard,
   TrainerData,
   UserData,
@@ -25,6 +27,7 @@ import EcommercePage from "./pages/EcommercePage";
 import ViewProductPage from "./pages/ViewProductPage";
 import UserDashboardPage from "./pages/UserDashboardPage";
 import BlogPage from "./pages/BlogPage";
+import ViewBlog from "./components/Blog/ViewBlog";
 
 const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
@@ -43,16 +46,20 @@ const router = createBrowserRouter([
   { path: "/editProduct/:id", element: <EditProductPage /> },
   { path: "/viewProduct/:id", element: <ViewProductPage /> },
   { path: "/ecommerce", element: <EcommercePage /> },
+  { path: "/ecommerce/cart", element: <Cart/>},
   { path: "/userData", element: <UserData /> },
   { path: "/trainerData", element: <TrainerData /> },
   { path: "/UserDashboard", element: <UserDashboardPage /> },
   { path: "/trainerDashboard", element: <TrainerDashboard /> },
   // Blogs
   { path: "/blogs", element: <BlogPage /> },
+  { path: "/blog/:id", element: <ViewBlog /> },
   {
     path: "/edit-blog/:id",
     element: <EditBlog/>,
   },
+  // services
+  { path: "/services", element: <Services />}
   
 ]);
 

@@ -10,7 +10,6 @@ function Dashboard() {
   const [numberOfBlogs, setNumberOfBlogs] = useState();
   const [activeTrainer, setActiveTrainer] = useState();
   const [totalTrainer, setTotalTrainer] = useState();
-
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -31,7 +30,6 @@ function Dashboard() {
         `http://localhost:3000/api/v1/users/totalUser`
       );
       let users = response.data.users;
-
       setNumberOfTotalUsers(
         users.filter((user) => {
           return user.role === "trainee";

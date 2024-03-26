@@ -20,7 +20,7 @@ function Signin() {
       setLoading(true);
       const response = await axios.post(
         "http://localhost:3000/api/v1/users/signin",
-        user
+        user,{withCredentials:true}
       );
       console.log("Response from signin", response.data);
       // const { token, user: userData } = response.data;
