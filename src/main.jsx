@@ -19,6 +19,7 @@ import {
   Cart,
   ContactUs,
   EditBlog,
+  Profile,
   Services,
   TrainerDashboard,
   TrainerData,
@@ -31,6 +32,8 @@ import ViewProductPage from "./pages/ViewProductPage";
 import UserDashboardPage from "./pages/UserDashboardPage";
 import BlogPage from "./pages/BlogPage";
 import ViewBlog from "./components/Blog/ViewBlog";
+// import { AuthProvider } from "./contexts/UserContext";
+import { UserProvider } from "./contexts/UserContext.jsx";
 
 const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
@@ -66,13 +69,13 @@ const router = createBrowserRouter([
   { path: "/services", element: <Services /> },
   { path: "/aboutUs", element: <AboutUs /> },
   { path: "/contactUs", element: <ContactUs /> },
+  { path: "/profile", element: <Profile /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* <UserProvider> */}
-
-    <RouterProvider router={router}></RouterProvider>
-    {/* </UserProvider> */}
+    <UserProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </UserProvider>
   </React.StrictMode>
 );

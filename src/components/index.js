@@ -23,6 +23,7 @@ import Cart from "./Ecommerce/Cart.jsx";
 import ViewUser from "./Dashboard/User/ViewUser.jsx";
 import AboutUs from "./AboutUs/AboutUs.jsx";
 import ContactUs from "./ContactUs/ContactUs.jsx";
+import Profile from "./Dashboard/Profile.jsx";
 export {
   Signin,
   Signup,
@@ -49,4 +50,5 @@ export {
   ViewUser,
   AboutUs,
   ContactUs,
+  Profile,
 };

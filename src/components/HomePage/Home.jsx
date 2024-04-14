@@ -1,6 +1,19 @@
 import React from "react";
-
+import { Link, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+// import { useUser } from "../../contexts/UserContext";
+import { useUser } from "../../contexts/UserContext";
 function Home() {
+  const { user } = useUser();
+// console.log()
+  const navigate = useNavigate();
+  const isLoggedIn = !!Cookies.get("token");
+  // console.log(isLoggedIn)
+  const handleLogout = () => {
+    Cookies.remove("token");
+
+    navigate("/signin");
+  };
   return (
     <div>
       {/* hero section */}
@@ -17,39 +30,47 @@ function Home() {
         <div className="absolute top-0 left-0 right-0 bottom-0 bg-black opacity-50"></div>
 
         {/* Navbar inside hero section */}
+
         <div className="absolute top-0 left-0 right-0 p-5 flex justify-between items-center text-white z-20">
           <div className="text-2xl font-bold">FitVista</div>
           <div className="flex space-x-5">
-            <a href="/services" className="text-lg">
+            <Link to="/services" className="text-xl">
               Services
-            </a>
-            <a href="/blogs" className="text-lg">
+            </Link>
+            <Link to="/blogs" className="text-xl">
               Blogs
-            </a>
-            {/* <a href="/ecommerce" className="text-lg">
-              Ecommerce
-            </a> */}
-            <a href="/aboutUs" className="text-lg">
+            </Link>
+            <Link to="/aboutUs" className="text-xl">
               About Us
-            </a>
-            <a href="/contactUs" className="text-lg">
+            </Link>
+            <Link to="/contactUs" className="text-xl">
               Contact Us
-            </a>
-            <a href="/dashboard" className="text-lg">
-              Profile
-            </a>
-            <a href="/signin" className="text-lg">
-              Signin
-            </a>
-            <a href="/signup" className="text-lg">
-              Signup
-            </a>
+            </Link>
+            {!isLoggedIn ? (
+              <>
+                <Link to="/profile" className="text-xl">
+                  profile
+                </Link>
+                <button onClick={handleLogout} className="text-xl">
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <Link to="/signin" className="text-lg">
+                  Signin
+                </Link>
+              </>
+            )}
           </div>
         </div>
 
         {/* Content */}
         <div className="text-left p-10 ml-10 lg:ml-20 z-10">
-          <h1 className="text-6xl font-bold text-white">Welcome to fitVista</h1>
+          <h1 className="text-6xl font-bold text-white">
+            Welcome to fitVista{" "}
+            {/* {user.user && user.user.firstName ? ` ${user.user.firstName}` : ""}! */}
+          </h1>
           <p className="mt-5 text-2xl text-white">
             Empower Your Journey, Transform Your Life
           </p>

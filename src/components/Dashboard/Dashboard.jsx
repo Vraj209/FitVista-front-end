@@ -3,7 +3,9 @@ import { Sidebar } from "../index";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+import { useUser } from "../../contexts/UserContext";
 function Dashboard() {
+  const { user } = useUser();
   const [numberOfProduct, setNumberOfProduct] = useState();
   const [numberOfActiveUser, setNumberOfActiveUser] = useState();
   const [numberOfTotalUsers, setNumberOfTotalUsers] = useState();
