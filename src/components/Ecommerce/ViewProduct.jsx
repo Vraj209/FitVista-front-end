@@ -1,45 +1,70 @@
-import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { FaArrowLeft, FaCartPlus } from "react-icons/fa";
 import { useNavigation } from "react-router-dom";
-
+import { AuthContext } from "../../contexts/AuthProvider";
 
 function ViewProduct() {
+  const { auth, setAuth } = useContext(AuthContext);
+  const { userData, accessToken } = auth;
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const navigation = useNavigation();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    async function fetchProduct() {
+    const fetchProduct = async () => {
       try {
-        const { data } = await axios.get(
+        const response = await axios.get(
           `http://localhost:3000/api/v1/product/getProduct/${id}`,
-          { withCredentials: true }
+          {
+            withCredentials: true,
+            headers: {
+              Authorization: `Bearer ${accessToken}`, // Assuming you use Bearer token
+            },
+          }
         );
-        setProduct(data.product);
+        setProduct(response.data.product);
       } catch (error) {
         console.error("Error fetching product:", error);
       }
-    }
+    };
     fetchProduct();
-  }, [id]);
+  }, [id, accessToken]);
 
   if (!product) return <div className="text-center py-8">Loading...</div>;
 
   const addToCartHandler = async () => {
-    try
-    {
-      console.log("add to cart api call")
-      await axios.post(`http://localhost:3000/api/v1/cart/addItemtoCart`, {
-        withCredentials: true,
-      });
+    try {
+      console.log("product", product);
+      const product_Data = {
+        id: product._id,
+        name: product.name,
+        price: product.price,
+        category: product.category,
+        description: product.description,
+        shortDescription: product.shortDescription,
+        image: product.image,
+      };
+      const response = await axios.post(
+        `http://localhost:3000/api/v1/cart/addItemtoCart`,
+        {
+          product_Data, // include other necessary fields
+        },
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${accessToken}`, // Assuming you use Bearer token
+          },
+        }
+      );
       alert("Product added to cart successfully!");
-      navigation("/ecommerce/cart")
+      navigate("/ecommerce/cart");
     } catch (error) {
       console.error("Error adding product to cart:", error);
     }
   };
+
   return (
     <div className="bg-gray-100 py-10 min-h-screen">
       <div className="container max-w-4xl mx-auto px-6">

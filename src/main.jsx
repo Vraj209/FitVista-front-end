@@ -40,7 +40,7 @@ import EcommercePage from "./pages/EcommercePage";
 import UserDashboardPage from "./pages/UserDashboardPage";
 import BlogPage from "./pages/BlogPage";
 import ViewBlog from "./components/Blog/ViewBlog";
-
+import { Checkout } from "./components";
 const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
   { path: "/signin", element: <Login /> },
@@ -59,6 +59,7 @@ const router = createBrowserRouter([
   { path: "/viewProduct/:id", element: <ViewProductPage /> },
   { path: "/ecommerce", element: <EcommercePage /> },
   { path: "/ecommerce/cart", element: <Cart /> },
+  { path: "/ecommerce/checkout", element: <Checkout /> },
   { path: "/userData", element: <UserData /> },
   { path: "/user/:id", element: <ViewUser /> },
   { path: "/trainerData", element: <TrainerData /> },

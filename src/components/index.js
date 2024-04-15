@@ -24,6 +24,8 @@ import ViewUser from "./Dashboard/User/ViewUser.jsx";
 import AboutUs from "./AboutUs/AboutUs.jsx";
 import ContactUs from "./ContactUs/ContactUs.jsx";
 import Profile from "./Dashboard/Profile.jsx";
+import Checkout from "./Ecommerce/Checkout.jsx"
+
 export {
   Signin,
   Signup,
@@ -51,4 +53,5 @@ export {
   AboutUs,
   ContactUs,
   Profile,
+  Checkout
 };
