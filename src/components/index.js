@@ -26,7 +26,8 @@ import ContactUs from "./ContactUs/ContactUs.jsx";
 import Profile from "./Dashboard/Profile.jsx";
 import Checkout from "./Ecommerce/Checkout.jsx";
 import Success from "./Ecommerce/Success.jsx";
-import Failure from "./Ecommerce/Failure.jsx"
+import Failure from "./Ecommerce/Failure.jsx";
+import Order from "./Ecommerce/Order.jsx";
 export {
   Signin,
   Signup,
@@ -56,5 +57,6 @@ export {
   Profile,
   Checkout,
   Success,
-  Failure
+  Failure,
+  Order,
 };
