@@ -2,10 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { FaArrowLeft, FaCartPlus } from "react-icons/fa";
+import { useNavigation } from "react-router-dom";
+
 
 function ViewProduct() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const navigation = useNavigation();
+
   useEffect(() => {
     async function fetchProduct() {
       try {
@@ -24,11 +28,14 @@ function ViewProduct() {
   if (!product) return <div className="text-center py-8">Loading...</div>;
 
   const addToCartHandler = async () => {
-    try {
+    try
+    {
+      console.log("add to cart api call")
       await axios.post(`http://localhost:3000/api/v1/cart/addItemtoCart`, {
         withCredentials: true,
       });
       alert("Product added to cart successfully!");
+      navigation("/ecommerce/cart")
     } catch (error) {
       console.error("Error adding product to cart:", error);
     }

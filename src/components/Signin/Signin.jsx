@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../contexts/AuthProvider";
 import { Link } from "react-router-dom";
 import "./Signin.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-// import { useUser } from "../../context/UserContext";
 
 function Signin() {
+  const { auth, setAuth } = useContext(AuthContext);
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -20,15 +21,35 @@ function Signin() {
       setLoading(true);
       const response = await axios.post(
         "http://localhost:3000/api/v1/users/signin",
-        user,{withCredentials:true}
+        user,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
       );
-      console.log("Response from signin", response.data);
-      // const { token, user: userData } = response.data;
-      // login({ token, userData });
+
+      console.log("Response from signin:", response.data);
+      const userData = response.data.data;
+      const { token } = response.data;
+      console.log("token", token); // Renaming destructured variable to userData
+      console.log("data", userData);
+
+      setAuth({ userData: userData, accessToken: token });
+      
       setLoading(false);
       navigate("/");
     } catch (error) {
-      console.log("Error in signin", error);
+      if (!error?.response) {
+        console.log("Error in signin", error);
+      } else if (error?.response?.status === 400) {
+        console.log("Missing email or password");
+      } else if (error?.response?.status === 401) {
+        console.log("Unauthorized user");
+      } else {
+        console.log("Login Faild", error);
+      }
     } finally {
       setLoading(false);
     }

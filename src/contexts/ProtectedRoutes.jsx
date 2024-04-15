@@ -1,21 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import { createBrowserRouter } from "react-router-dom";
+import HomePage from "../pages/HomePage";
+import Register from "../pages/Register";
 
-import "./index.css";
-import {
-  BrowserRouter,
-  createBrowserRouter,
-  Route,
-  RouterProvider,
-  Routes,
-} from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import PasswordChange from "./pages/PasswordChange";
-import SetNewPassword from "./pages/SetNewPassword";
-
-import DashboardPage from "./pages/DashboardPage";
+import PasswordChange from "../pages/PasswordChange";
+import SetNewPassword from "../pages/SetNewPassword";
+import DashboardPage from "../pages/DashboardPage";
 import {
   AboutUs,
   AddBlog,
@@ -31,20 +20,18 @@ import {
   TrainerData,
   UserData,
   ViewUser,
-} from "./components";
+} from "../components";
+import EditProductPage from "../pages/EditProductPage";
+import ViewProductPage from "../pages/ViewProductPage";
+import EcommercePage from "../pages/EcommercePage";
+import UserDashboardPage from "../pages/UserDashboardPage";
+import BlogPage from "../pages/BlogPage";
+import ViewBlog from "../components/Blog/ViewBlog";
 
-import { AuthProvider } from "./contexts/AuthProvider";
-import EditProductPage from "./pages/EditProductPage";
-import ViewProductPage from "./pages/ViewProductPage";
-import EcommercePage from "./pages/EcommercePage";
-import UserDashboardPage from "./pages/UserDashboardPage";
-import BlogPage from "./pages/BlogPage";
-import ViewBlog from "./components/Blog/ViewBlog";
-
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
-  { path: "/signin", element: <Login /> },
   { path: "/signup", element: <Register /> },
+
   { path: "/changePassword", element: <PasswordChange /> },
   { path: "/forgotPassword", element: <SetNewPassword /> },
   {
@@ -77,16 +64,3 @@ const router = createBrowserRouter([
   { path: "/contactUs", element: <ContactUs /> },
   { path: "/profile", element: <Profile /> },
 ]);
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <AuthProvider>
-      {/*<BrowserRouter>
-        <Routes>
-          <Route path="/signin" element={<Login />}></Route>
-          <Route path="/signup" element={<Register />}></Route>
-        </Routes>*/}
-      <RouterProvider router={router}></RouterProvider>
-      {/*  </BrowserRouter>*/}
-    </AuthProvider>
-  </React.StrictMode>
-);

@@ -1,88 +1,100 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { FaTrashAlt, FaShoppingCart } from 'react-icons/fa';
-import { Link } from "react-router-dom";
+import { Trash, Heart } from "lucide-react";
 
-function CartPage() {
-  const [cartItems, setCartItems] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
+function Cart() {
+  const [product, setProduct] = useState();
 
-  useEffect(() => {
-    fetchCartItems();
-  }, []);
 
-  const fetchCartItems = async () => {
-    try {
-      const response = await axios.get('http://localhost:3000/api/v1/cart/cartItems',{ withCredentials: true });
-      setCartItems(response.data.cart.items);
-      calculateTotalPrice(response.data.cart.items);
-    } catch (error) {
-      console.error("Error fetching cart items:", error);
-    }
-  };
-
-  const calculateTotalPrice = (items) => {
-    const total = items.reduce((acc, item) => acc + (item.price * item.quantity), 0);
-    setTotalPrice(total);
-  };
-
+  // Function to remove item from cart
   const removeItemFromCart = async (productId) => {
     try {
-      await axios.delete(`http://localhost:3000/api/v1/cart//removeItem/${productId}`,{ withCredentials: true });
-      fetchCartItems(); // Refresh the cart items after removal
+      await axios.delete(`/api/cart/remove/${productId}`);
+      // Optionally refresh the products list here
+      console.log("Item removed successfully");
     } catch (error) {
-      console.error("Error removing item from cart:", error);
+      console.error("Failed to remove item from cart:", error);
     }
   };
 
-  const emptyCart = async () => {
-    try {
-      await axios.delete('http://localhost:3000/api/v1/cart/empty',{ withCredentials: true });
-      setCartItems([]);
-      setTotalPrice(0);
-    } catch (error) {
-      console.error("Error emptying the cart:", error);
-    }
-  };
+
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-gray-800">Shopping Cart <FaShoppingCart className="inline mb-1" /></h1>
-        <button onClick={emptyCart} className="text-red-600 hover:text-red-800 font-semibold">
-          Empty Cart
-        </button>
-      </div>
-      {cartItems.length > 0 ? (
-        <div className="bg-white rounded-lg shadow-md">
-          <ul>
-            {cartItems.map((item) => (
-              <li key={item.id} className="flex justify-between items-center p-6 border-b">
-                <div className="flex items-center">
-                  <img src={item.image} alt={item.name} className="w-20 h-20 object-cover rounded mr-4" />
-                  <div>
-                    <h2 className="text-xl font-medium">{item.name}</h2>
-                    <p className="text-gray-600">${item.price} x {item.quantity}</p>
+    <div className="mx-auto flex max-w-3xl flex-col space-y-4 p-6 px-2 sm:p-10 sm:px-2">
+      <h2 className="text-3xl font-bold">Your cart</h2>
+      <p className="mt-3 text-sm font-medium text-gray-700">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum eius
+        repellat ipsam, sit praesentium incidunt.
+      </p>
+      <ul className="flex flex-col divide-y divide-gray-200">
+        {products.map((product) => (
+          <li
+            key={product.id}
+            className="flex flex-col py-6 sm:flex-row sm:justify-between"
+          >
+            <div className="flex w-full space-x-2 sm:space-x-4">
+              <img
+                className="h-20 w-20 flex-shrink-0 rounded object-contain outline-none dark:border-transparent sm:h-32 sm:w-32"
+                src={product.imageSrc}
+                alt={product.name}
+              />
+              <div className="flex w-full flex-col justify-between pb-4">
+                <div className="flex w-full justify-between space-x-2 pb-2">
+                  <div className="space-y-1">
+                    <h3 className="text-lg font-semibold leading-snug sm:pr-8">
+                      {product.name}
+                    </h3>
+                    <p className="text-sm">{product.color}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-lg font-semibold">{product.price}</p>
                   </div>
                 </div>
-                <button onClick={() => removeItemFromCart(item.id)} className="text-red-600 hover:text-red-800">
-                  <FaTrashAlt />
-                </button>
-              </li>
-            ))}
-          </ul>
-          <div className="p-6">
-            <h3 className="text-xl font-semibold">Total: ${totalPrice.toFixed(2)}</h3>
-            <Link to="/checkout" className="mt-4 inline-block bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 transition-colors duration-200 ease-in-out">
-              Proceed to Checkout
-            </Link>
-          </div>
-        </div>
-      ) : (
-        <p className="text-center text-gray-800 text-xl">Your cart is empty.</p>
-      )}
+                <div className="flex divide-x text-sm">
+                  <button
+                    type="button"
+                    className="flex items-center space-x-2 px-2 py-1 pl-0"
+                    onClick={() => removeItemFromCart(product.id)}
+                  >
+                    <Trash size={16} />
+                    <span>Remove</span>
+                  </button>
+                  <button
+                    type="button"
+                    className="flex items-center space-x-2 px-2 py-1"
+                    onClick={() => addToFavorites(product.id)}
+                  >
+                    <Heart size={16} />
+                    <span>Add to favorites</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <div className="space-y-1 text-right">
+        <p>
+          Total amount:
+          <span className="font-semibold"> ₹48,967</span>
+        </p>
+      </div>
+      <div className="flex justify-end space-x-4">
+        <button
+          type="button"
+          className="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+        >
+          Back to shop
+        </button>
+        <button
+          type="button"
+          className="rounded-md border border-black px-3 py-2 text-sm font-semibold text-black shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+        >
+          Checkout
+        </button>
+      </div>
     </div>
   );
 }
 
-export default CartPage;
+export { Cart };

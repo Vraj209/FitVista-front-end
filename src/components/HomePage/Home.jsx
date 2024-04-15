@@ -1,20 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
-// import { useUser } from "../../contexts/UserContext";
-import { useUser } from "../../contexts/UserContext";
+import { AuthContext } from "../../contexts/AuthProvider";
 function Home() {
-  const { user } = useUser();
-// console.log()
-  const navigate = useNavigate();
-  const isLoggedIn = !!Cookies.get("token");
-  // console.log(isLoggedIn)
-  const handleLogout = () => {
-    Cookies.remove("token");
-
-    navigate("/signin");
+  const { auth, setAuth } = useContext(AuthContext);
+  const { userData, accessToken } = auth;
+  console.log("user", userData);
+  console.log("accessToken", accessToken);
+  const logout = () => {
+    setAuth({ userData: null, accessToken: null });
   };
-  return (
+  return accessToken ? (
     <div>
       {/* hero section */}
       <div
@@ -46,22 +41,13 @@ function Home() {
             <Link to="/contactUs" className="text-xl">
               Contact Us
             </Link>
-            {!isLoggedIn ? (
-              <>
-                <Link to="/profile" className="text-xl">
-                  profile
-                </Link>
-                <button onClick={handleLogout} className="text-xl">
-                  Logout
-                </button>
-              </>
-            ) : (
-              <>
-                <Link to="/signin" className="text-lg">
-                  Signin
-                </Link>
-              </>
-            )}
+
+            <Link to="/profile" className="text-xl">
+              {userData.role}
+            </Link>
+            <button onClick={logout} className="text-xl">
+              Logout
+            </button>
           </div>
         </div>
 
@@ -69,7 +55,7 @@ function Home() {
         <div className="text-left p-10 ml-10 lg:ml-20 z-10">
           <h1 className="text-6xl font-bold text-white">
             Welcome to fitVista{" "}
-            {/* {user.user && user.user.firstName ? ` ${user.user.firstName}` : ""}! */}
+            {userData && userData.firstName ? ` ${userData.firstName}` : ""}!
           </h1>
           <p className="mt-5 text-2xl text-white">
             Empower Your Journey, Transform Your Life
@@ -281,6 +267,23 @@ function Home() {
           </div>
         </div>
       </footer>
+    </div>
+  ) : (
+    <div className="flex items-center justify-center h-screen bg-gray-100">
+      <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
+        <div className="mb-4">
+          <p className="text-gray-700 text-lg">Oops! You are not logged in.</p>
+          <p className="text-gray-600 text-base">
+            Please log in to see the content.
+          </p>
+        </div>
+        <Link
+          to="/signin"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Login
+        </Link>
+      </div>
     </div>
   );
 }
