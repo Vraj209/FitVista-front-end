@@ -19,13 +19,14 @@ import BlogList from "./Blog/BlogList.jsx";
 import TrainerDashboard from "./TrainerDashboard/TrainerDashboard.jsx";
 import EditBlog from "./Blog/EditBlog.jsx";
 import Services from "./HomePage/Services.jsx";
-import {Cart} from "./Ecommerce/Cart.jsx";
+import { Cart } from "./Ecommerce/Cart.jsx";
 import ViewUser from "./Dashboard/User/ViewUser.jsx";
 import AboutUs from "./AboutUs/AboutUs.jsx";
 import ContactUs from "./ContactUs/ContactUs.jsx";
 import Profile from "./Dashboard/Profile.jsx";
-import Checkout from "./Ecommerce/Checkout.jsx"
-
+import Checkout from "./Ecommerce/Checkout.jsx";
+import Success from "./Ecommerce/Success.jsx";
+import Failure from "./Ecommerce/Failure.jsx"
 export {
   Signin,
   Signup,
@@ -53,5 +54,7 @@ export {
   AboutUs,
   ContactUs,
   Profile,
-  Checkout
+  Checkout,
+  Success,
+  Failure
 };
