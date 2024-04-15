@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Sidebar from "../../Sidebar/Sidebar";
+import { AuthContext } from "../../../contexts/AuthProvider";
 
-function ViewUser() {
+function ViewUser()
+{
+  const { auth, setAuth } = useContext(AuthContext);
+  const { userData, accessToken } = auth;
   const [user, setUser] = useState({});
   const [trainers, setTrainers] = useState([]); // New state for storing trainers
   const { id } = useParams();
@@ -16,7 +20,12 @@ function ViewUser() {
   const fetchUser = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/v1/users/getUser/${id}`
+        `http://localhost:3000/api/v1/users/getUser/${id}`,  {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${accessToken}`, // Assuming you use Bearer token
+          },
+        }
       );
       setUser(response.data.user);
     } catch (error) {
@@ -28,7 +37,12 @@ function ViewUser() {
   const fetchTrainers = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/v1/users/totalUser`
+        `http://localhost:3000/api/v1/users/totalUser`,  {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${accessToken}`, // Assuming you use Bearer token
+          },
+        }
       );
       let users = response.data.users;
       setTrainers(
@@ -47,6 +61,11 @@ function ViewUser() {
         `http://localhost:3000/api/v1/users/trainerAssign/${id}`,
         {
           trainer: newTrainerId,
+        },  {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${accessToken}`, // Assuming you use Bearer token
+          },
         }
       );
       fetchUser();

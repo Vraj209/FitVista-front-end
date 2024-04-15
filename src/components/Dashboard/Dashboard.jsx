@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Sidebar } from "../index";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import { AuthContext } from "../../contexts/AuthProvider";
 
 function Dashboard() {
-  
-  
+  const { auth, setAuth } = useContext(AuthContext);
+  const { userData, accessToken } = auth;
+
   const [numberOfProduct, setNumberOfProduct] = useState();
   const [numberOfActiveUser, setNumberOfActiveUser] = useState();
   const [numberOfTotalUsers, setNumberOfTotalUsers] = useState();
@@ -17,7 +18,13 @@ function Dashboard() {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/v1/product/getProducts`
+          `http://localhost:3000/api/v1/product/getProducts`,
+          {
+            withCredentials: true,
+            headers: {
+              Authorization: `Bearer ${accessToken}`, // Assuming you use Bearer token
+            },
+          }
         );
         setNumberOfProduct(response.data.products.length);
       } catch (error) {
@@ -30,9 +37,16 @@ function Dashboard() {
   useEffect(() => {
     const fetchUser = async () => {
       const response = await axios.get(
-        `http://localhost:3000/api/v1/users/totalUser`
+        `http://localhost:3000/api/v1/users/totalUser`,
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${accessToken}`, // Assuming you use Bearer token
+          },
+        }
       );
       let users = response.data.users;
+      console.log("user", users);
       console.log(users);
       setNumberOfTotalUsers(
         users.filter((user) => {
@@ -61,7 +75,13 @@ function Dashboard() {
     const fetchBlogs = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/v1/blog/getBlogs`
+          `http://localhost:3000/api/v1/blog/getBlogs`,
+          {
+            withCredentials: true,
+            headers: {
+              Authorization: `Bearer ${accessToken}`, // Assuming you use Bearer token
+            },
+          }
         );
         let blogs = response.data.blogs;
         setNumberOfBlogs(blogs.length);

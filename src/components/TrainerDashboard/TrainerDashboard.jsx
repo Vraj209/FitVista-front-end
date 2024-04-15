@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar"; // Make sure the path is correct based on your project structure
-
+import { AuthContext } from "../../contexts/AuthProvider";
 function TrainerDashboard() {
+  const { auth, setAuth } = useContext(AuthContext);
+  const { userData, accessToken } = auth;
+  console.log("userData", userData);
   return (
     <div className="min-h-screen bg-white">
       <Sidebar />
@@ -16,7 +19,7 @@ function TrainerDashboard() {
 
           <div className="py-3 mb-2">
             <p className="text-3xl font-semibold text-gray-800">
-              Welcome, Trainer!
+              Welcome, {userData.firstName}!
             </p>
           </div>
 
@@ -33,8 +36,8 @@ function TrainerDashboard() {
 
             {/* Total Trainee Card */}
             <div className="flex flex-col items-center justify-center h-24 rounded-lg bg-green-200 shadow">
-              <p className="text-3xl font-semibold text-gray-800 py-2">150</p>
-              <p className="text-xl text-gray-600">Total Trainees</p>
+              <p className="text-3xl font-semibold text-gray-800 py-2">{}</p>
+              <p className="text-xl text-gray-600">Assign Trainees</p>
             </div>
           </div>
 
@@ -51,6 +54,7 @@ function TrainerDashboard() {
                 type="text"
                 name="first-name"
                 id="first-name"
+                value={userData.firstName}
                 className="mt-1 p-2 w-full rounded-md border-gray-300 shadow-sm"
               />
             </div>
@@ -65,6 +69,7 @@ function TrainerDashboard() {
                 type="text"
                 name="last-name"
                 id="last-name"
+                value={userData.lastName}
                 className="mt-1 p-2 w-full rounded-md border-gray-300 shadow-sm"
               />
             </div>
@@ -77,8 +82,9 @@ function TrainerDashboard() {
               </label>
               <input
                 type="email"
-                name="email"
                 id="email"
+                name="email"
+                value={userData.email}
                 className="mt-1 p-2 w-full rounded-md border-gray-300 shadow-sm"
               />
             </div>

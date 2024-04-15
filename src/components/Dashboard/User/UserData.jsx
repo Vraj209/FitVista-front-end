@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Sidebar from "../../Sidebar/Sidebar";
 import axios from "axios";
 import { useNavigation, Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider";
 
 function UserData() {
+  const { auth, setAuth } = useContext(AuthContext);
+  const { userData, accessToken } = auth;
   const [users, setUsers] = useState([]);
   useEffect(() => {
     fetchUser();
@@ -12,7 +15,13 @@ function UserData() {
   const fetchUser = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/v1/users/totalUser`
+        `http://localhost:3000/api/v1/users/totalUser`,
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${accessToken}`, // Assuming you use Bearer token
+          },
+        }
       );
       let users = response.data.users;
       setUsers(
@@ -27,9 +36,12 @@ function UserData() {
   const toggleUserStatus = async (userId, isActive) => {
     try {
       // Assuming your API endpoint to toggle the status looks something like this
-      await axios.patch(`http://localhost:3000/api/v1/users/${userId}/status`, {
-        isActive: !isActive,
-      });
+      await axios.patch(`http://localhost:3000/api/v1/users/${userId}/status`,  {
+        withCredentials: true,
+        headers: {
+          Authorization: `Bearer ${accessToken}`, // Assuming you use Bearer token
+        },
+      } );
       fetchUser(); // Re-fetch users to update the UI
     } catch (error) {
       console.error("Error updating user status:", error);

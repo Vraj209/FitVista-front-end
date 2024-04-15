@@ -1,8 +1,12 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Sidebar from "../../Sidebar/Sidebar";
+import { AuthContext } from "../../../contexts/AuthProvider";
 
-function TrainerData() {
+function TrainerData()
+{
+  const { auth, setAuth } = useContext(AuthContext);
+  const { userData, accessToken } = auth;
   const [users, setUsers] = useState([]);
   useEffect(() => {
     fetchUser();
@@ -11,7 +15,13 @@ function TrainerData() {
   const fetchUser = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/v1/users/totalUser`
+        `http://localhost:3000/api/v1/users/totalUser`,
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${accessToken}`, // Assuming you use Bearer token
+          },
+        }
       );
       let users = response.data.users;
       setUsers(
@@ -24,7 +34,6 @@ function TrainerData() {
     }
   };
 
-  
   return (
     <div className="min-h-screen bg-white">
       <Sidebar />
@@ -76,7 +85,9 @@ function TrainerData() {
                     <td className="px-2 py-2 border-b border-gray-200 bg-white text-sm">
                       <button
                         className={` rounded ${
-                          user.status == "active" ? "bg-red-500" : "bg-green-500"
+                          user.status == "active"
+                            ? "bg-red-500"
+                            : "bg-green-500"
                         } text-white focus:outline-none focus:shadow-outline`}
                         onClick={() => toggleUserStatus(user.id, user.status)}
                       >
