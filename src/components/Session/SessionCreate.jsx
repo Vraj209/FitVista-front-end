@@ -100,9 +100,7 @@ function SessionCreate() {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="trainerName"
             type="text"
-            value={trainerName}
-            onChange={(e) => setTrainerName(e.target.value)}
-            placeholder="Enter the trainer's name"
+            value={userData.firstName}
             required
           />
         </div>
