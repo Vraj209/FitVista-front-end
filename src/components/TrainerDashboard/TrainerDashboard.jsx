@@ -27,13 +27,20 @@ function TrainerDashboard() {
             {/* Upload Video Card */}
             <div className="flex flex-col items-center justify-center h-24 rounded-lg bg-blue-200 shadow">
               <Link
-                to="/upload-video"
+                to="/upload"
                 className="text-2xl font-semibold text-gray-800 py-2 hover:text-gray-600"
               >
                 Upload Video
               </Link>
             </div>
-
+            <div className="flex flex-col items-center justify-center h-24 rounded-lg bg-blue-200 shadow">
+              <Link
+                to="/videoList"
+                className="text-2xl font-semibold text-gray-800 py-2 hover:text-gray-600"
+              >
+                Video Details
+              </Link>
+            </div>
             {/* Total Trainee Card */}
             <div className="flex flex-col items-center justify-center h-24 rounded-lg bg-green-200 shadow">
               <p className="text-3xl font-semibold text-gray-800 py-2">{}</p>

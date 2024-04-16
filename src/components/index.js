@@ -28,6 +28,12 @@ import Checkout from "./Ecommerce/Checkout.jsx";
 import Success from "./Ecommerce/Success.jsx";
 import Failure from "./Ecommerce/Failure.jsx";
 import Order from "./Ecommerce/Order.jsx";
+import VideoDetail from "./Video/VideoDetail.jsx";
+import VideoUpdate from "./Video/VideoUpdate.jsx";
+import VideoUpload from "./Video/VideoUpload.jsx";
+import VideoList from "./Video/VideoList.jsx";
+import SessionHome from "./Session/SessionHome.jsx";
+import SessionRoom from "./Session/SessionRoom.jsx";
 export {
   Signin,
   Signup,
@@ -59,4 +65,10 @@ export {
   Success,
   Failure,
   Order,
+  VideoDetail,
+  VideoUpdate,
+  VideoUpload,
+  VideoList,
+  SessionHome,
+  SessionRoom
 };

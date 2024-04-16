@@ -28,10 +28,16 @@ import {
   Failure,
   Profile,
   Services,
+  SessionHome,
+  SessionRoom,
   Success,
   TrainerDashboard,
   TrainerData,
   UserData,
+  VideoDetail,
+  VideoList,
+  VideoUpdate,
+  VideoUpload,
   ViewUser,
 } from "./components";
 
@@ -82,6 +88,14 @@ const router = createBrowserRouter([
   { path: "/aboutUs", element: <AboutUs /> },
   { path: "/contactUs", element: <ContactUs /> },
   { path: "/profile", element: <Profile /> },
+
+  { path: "/content/:videoId", element: <VideoDetail /> },
+  { path: "/updatevideo/:videoId", element: <VideoUpdate /> },
+  { path: "/upload", element: <VideoUpload /> },
+  { path: "/videoList", element: <VideoList /> },
+
+  { path: "/room", element: <SessionHome /> },
+  { path: "/room/:roomId", element: <SessionRoom /> },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
