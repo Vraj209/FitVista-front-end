@@ -8,9 +8,10 @@ function UserDashboard() {
   const { userData, accessToken } = auth;
   const [user, setUser] = useState({});
 
+  const [Session, setSession] = useState([]);
   useEffect(() => {
     fetchUser();
-    // Fetch trainers when the component mounts
+    fetchRoomCode();
   }, [userData.trainer]);
 
   const fetchUser = async () => {
@@ -29,7 +30,25 @@ function UserDashboard() {
       console.error("Error fetching user:", error);
     }
   };
-
+  const fetchRoomCode = async () => {
+    const response = await axios.get(
+      `http://localhost:3000/api/v1/trainingsession/sessions`,
+      {
+        withCredentials: true,
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
+    let session = response.data.sessions;
+    console.log(session);
+    setSession(
+      session.filter((session) => {
+        return session.username === userData.firstName;
+      })
+    );
+    console.log("Session", Session[0].roomcode);
+  };
   return (
     <div className="min-h-screen bg-white">
       <Sidebar />
@@ -48,6 +67,12 @@ function UserDashboard() {
                 {user.firstName}
               </p>
               <p className="text-xl text-gray-600">Trainer Name</p>
+            </div>
+            <div className="flex flex-col items-center justify-center h-24 rounded-lg bg-purple-200 shadow">
+              <p className="text-3xl font-semibold text-gray-800 py-2">
+                {Session[0].roomcode}
+              </p>
+              <p className="text-xl text-gray-600">Room Code</p>
             </div>
           </div>
         </div>

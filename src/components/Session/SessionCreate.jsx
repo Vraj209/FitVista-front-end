@@ -9,18 +9,39 @@ function SessionCreate() {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [roomCode, setRoomCode] = useState("");
-  const [trainerName, setTrainerName] = useState("");
+  const [trainerName, setTrainerName] = useState(auth.userData.firstName);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log({
+    const sessionData = {
       username,
       date,
       time,
-      roomCode,
-      trainerName,
-    });
+      roomcode: roomCode,
+      trainername: trainerName,
+    };
+
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/api/v1/trainingsession/sessions",
+        sessionData,
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${accessToken}`, 
+          },
+        }
+      );
+      console.log("Session created:", response.data);
+      alert("Session created successfully");
+    } catch (error) {
+      console.error(
+        "Error creating session:",
+        error.response ? error.response.data : "No response received"
+      );
+      alert("Failed to create session");
+    }
   };
 
   return (

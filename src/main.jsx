@@ -33,6 +33,7 @@ import {
   SessionHome,
   SessionRoom,
   Success,
+  TraineeRoomCode,
   TrainerDashboard,
   TrainerData,
   UserData,
@@ -100,6 +101,7 @@ const router = createBrowserRouter([
   { path: "/room/:roomId", element: <SessionRoom /> },
   { path: "/room/create", element: <SessionCreate /> },
   { path: "/assignTrainee", element: <AssignTrainee /> },
+  { path: "/traineeRoomCode", element: <TraineeRoomCode /> },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

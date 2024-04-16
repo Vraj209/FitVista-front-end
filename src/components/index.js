@@ -36,6 +36,7 @@ import SessionHome from "./Session/SessionHome.jsx";
 import SessionRoom from "./Session/SessionRoom.jsx";
 import SessionCreate from "./Session/SessionCreate.jsx";
 import AssignTrainee from "./Session/AssignTrainee.jsx";
+import TraineeRoomCode from "./Session/TraineeRoomCode.jsx";
 export {
   Signin,
   Signup,
@@ -75,4 +76,5 @@ export {
   SessionRoom,
   SessionCreate,
   AssignTrainee,
+  TraineeRoomCode,
 };
