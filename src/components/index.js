@@ -34,6 +34,8 @@ import VideoUpload from "./Video/VideoUpload.jsx";
 import VideoList from "./Video/VideoList.jsx";
 import SessionHome from "./Session/SessionHome.jsx";
 import SessionRoom from "./Session/SessionRoom.jsx";
+import SessionCreate from "./Session/SessionCreate.jsx";
+import AssignTrainee from "./Session/AssignTrainee.jsx";
 export {
   Signin,
   Signup,
@@ -70,5 +72,7 @@ export {
   VideoUpload,
   VideoList,
   SessionHome,
-  SessionRoom
+  SessionRoom,
+  SessionCreate,
+  AssignTrainee,
 };

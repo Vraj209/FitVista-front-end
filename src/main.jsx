@@ -22,12 +22,14 @@ import {
   AddProduct,
   AllBlogs,
   AllProductList,
+  AssignTrainee,
   Cart,
   ContactUs,
   EditBlog,
   Failure,
   Profile,
   Services,
+  SessionCreate,
   SessionHome,
   SessionRoom,
   Success,
@@ -96,6 +98,8 @@ const router = createBrowserRouter([
 
   { path: "/room", element: <SessionHome /> },
   { path: "/room/:roomId", element: <SessionRoom /> },
+  { path: "/room/create", element: <SessionCreate /> },
+  { path: "/assignTrainee", element: <AssignTrainee /> },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
