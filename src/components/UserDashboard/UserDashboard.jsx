@@ -15,7 +15,7 @@ function UserDashboard() {
 
   useEffect(() => {
     fetchRoomCode();
-  }, []); // Ensure this effect does not run repeatedly unless explicitly needed
+  }, []); 
 
   const fetchUser = async () => {
     try {
@@ -46,14 +46,17 @@ function UserDashboard() {
         }
       );
       const sessions = response.data.sessions;
-      const filteredSessions = sessions.filter(session => session.username === userData.firstName);
+      const filteredSessions = sessions.filter(
+        (session) => session.username === userData.firstName
+      );
       setSession(filteredSessions);
     } catch (error) {
       console.error("Error fetching room codes:", error);
     }
   };
 
-  const roomCode = Session.length > 0 ? Session[0].roomcode : "No Room Code Available";
+  const roomCode =
+    Session.length > 0 ? Session[0].roomcode : "No Room Code Available";
 
   return (
     <div className="min-h-screen bg-white">
