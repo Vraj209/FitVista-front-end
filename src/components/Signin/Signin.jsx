@@ -19,16 +19,11 @@ function Signin() {
     e.preventDefault();
     try {
       setLoading(true);
-      const response = await axios.post(
-        "/api/v1/users/signin",
-        user,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        }
-      );
+      const response = await axios.post("/api/v1/users/signin", user, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       console.log("Response from signin:", response.data);
       const userData = response.data.data;
@@ -37,7 +32,7 @@ function Signin() {
       console.log("data", userData);
 
       setAuth({ userData: userData, accessToken: token });
-      
+
       setLoading(false);
       navigate("/");
     } catch (error) {
