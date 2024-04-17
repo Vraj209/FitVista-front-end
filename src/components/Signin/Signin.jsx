@@ -19,11 +19,15 @@ function Signin() {
     e.preventDefault();
     try {
       setLoading(true);
-      const response = await axios.post("/api/v1/users/signin", user, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await axios.post(
+        "http://localhost:3000/api/v1/users/signin",
+        user,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       console.log("Response from signin:", response.data);
       const userData = response.data.data;
