@@ -12,7 +12,7 @@ function EditProduct() {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/v1/product/getProduct/${id}`
+          `/api/v1/product/getProduct/${id}`
         );
         setProduct(response.data.product);
       } catch (error) {
@@ -28,7 +28,7 @@ function EditProduct() {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/v1/product/updateProduct/${id}`,
+        `/api/v1/product/updateProduct/${id}`,
         product
       );
       console.log("Response from updating product", response.data);
@@ -42,7 +42,7 @@ function EditProduct() {
   const deleteHandler = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:3000/api/v1/product/deleteProduct/${id}`
+        `/api/v1/product/deleteProduct/${id}`
       );
       console.log("Response from deleting product", response.data);
       alert("Product deleted successfully");

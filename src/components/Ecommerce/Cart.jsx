@@ -19,7 +19,7 @@ function Cart() {
   const fetchCartItems = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/v1/cart/cartItems",
+        "/api/v1/cart/cartItems",
         {
           withCredentials: true,
         }
@@ -46,7 +46,7 @@ function Cart() {
     try {
       console.log("Updating quantity for item:", itemId, "to:", newQuantity);
       const response = await axios.patch(
-        `http://localhost:3000/api/v1/cart/updateItem/${itemId}`,
+        `/api/v1/cart/updateItem/${itemId}`,
         { quantity: newQuantity },
         { withCredentials: true }
       );
@@ -61,7 +61,7 @@ function Cart() {
   const removeItemFromCart = async (itemId) => {
     try {
       await axios.delete(
-        `http://localhost:3000/api/v1/cart/removeItem/${itemId}`,
+        `/api/v1/cart/removeItem/${itemId}`,
         {
           withCredentials: true,
         }
@@ -74,7 +74,7 @@ function Cart() {
 
   const emptyCart = async () => {
     try {
-      await axios.delete(`http://localhost:3000/api/v1/cart/empty`, {
+      await axios.delete(`/api/v1/cart/empty`, {
         withCredentials: true,
       });
       setCartItems([]);

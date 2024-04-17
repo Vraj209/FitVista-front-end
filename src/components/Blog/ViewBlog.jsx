@@ -9,7 +9,7 @@ function ViewBlog() {
   useEffect(() => {
     async function fetchBlogData() {
       try {
-        const response = await axios.get(`http://localhost:3000/api/v1/blog/getBlog/${id}`);
+        const response = await axios.get(`/api/v1/blog/getBlog/${id}`);
         setBlog(response.data.blog);
       } catch (error) {
         console.error("Error fetching blog data", error);

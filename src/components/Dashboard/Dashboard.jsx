@@ -18,7 +18,7 @@ function Dashboard() {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/v1/product/getProducts`,
+          `/api/v1/product/getProducts`,
           {
             withCredentials: true,
             headers: {
@@ -37,7 +37,7 @@ function Dashboard() {
   useEffect(() => {
     const fetchUser = async () => {
       const response = await axios.get(
-        `http://localhost:3000/api/v1/users/totalUser`,
+        `/api/v1/users/totalUser`,
         {
           withCredentials: true,
           headers: {
@@ -75,7 +75,7 @@ function Dashboard() {
     const fetchBlogs = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/v1/blog/getBlogs`,
+          `/api/v1/blog/getBlogs`,
           {
             withCredentials: true,
             headers: {

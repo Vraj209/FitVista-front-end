@@ -13,7 +13,7 @@ const VideoUpdate = () => {
     useEffect(() => {
         const fetchVideo = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/api/content/${videoId}`);
+                const response = await axios.get(`/api/content/${videoId}`);
                 setTitle(response.data.video.title);
                 setDescription(response.data.video.description);
             } catch (err) {
@@ -29,7 +29,7 @@ const VideoUpdate = () => {
         e.preventDefault();
         setLoading(true);
         try {
-            await axios.put(`http://localhost:3000/api/updatevideo/${videoId}`, {
+            await axios.put(`/api/updatevideo/${videoId}`, {
                 title,
                 description
             });

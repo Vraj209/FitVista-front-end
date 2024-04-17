@@ -20,7 +20,7 @@ function ViewUser()
   const fetchUser = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/v1/users/getUser/${id}`,  {
+        `/api/v1/users/getUser/${id}`,  {
           withCredentials: true,
           headers: {
             Authorization: `Bearer ${accessToken}`, // Assuming you use Bearer token
@@ -37,7 +37,7 @@ function ViewUser()
   const fetchTrainers = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/v1/users/totalUser`,  {
+        `/api/v1/users/totalUser`,  {
           withCredentials: true,
           headers: {
             Authorization: `Bearer ${accessToken}`, // Assuming you use Bearer token
@@ -58,7 +58,7 @@ function ViewUser()
   const updateTrainer = async (newTrainerId) => {
     try {
       await axios.put(
-        `http://localhost:3000/api/v1/users/trainerAssign/${id}`,
+        `/api/v1/users/trainerAssign/${id}`,
         {
           trainer: newTrainerId,
         },  {

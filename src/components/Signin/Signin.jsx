@@ -20,7 +20,7 @@ function Signin() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:3000/api/v1/users/signin",
+        "/api/v1/users/signin",
         user,
         {
           headers: {

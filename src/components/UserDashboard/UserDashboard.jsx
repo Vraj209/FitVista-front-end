@@ -20,7 +20,7 @@ function UserDashboard() {
   const fetchUser = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/v1/users/getUser/${userData.trainer}`,
+        `/api/v1/users/getUser/${userData.trainer}`,
         {
           withCredentials: true,
           headers: {
@@ -37,7 +37,7 @@ function UserDashboard() {
   const fetchRoomCode = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/v1/trainingsession/sessions`,
+        `/api/v1/trainingsession/sessions`,
         {
           withCredentials: true,
           headers: {

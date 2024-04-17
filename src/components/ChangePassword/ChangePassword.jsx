@@ -17,7 +17,7 @@ function ChangePassword() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:3000/api/v1/users/changePassword",
+        "/api/v1/users/changePassword",
         user
       );
       console.log("Response from changePassword", response.data);

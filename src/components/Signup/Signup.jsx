@@ -21,7 +21,7 @@ function Signup() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:3000/api/v1/users/signup",
+        "/api/v1/users/signup",
         user
       );
       console.log("Response from signup", response.data);

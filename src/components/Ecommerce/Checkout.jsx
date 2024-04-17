@@ -31,7 +31,7 @@ function Checkout() {
   const fetchCartItems = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/v1/cart/cartItems",
+        "/api/v1/cart/cartItems",
         {
           withCredentials: true,
           headers: {
@@ -87,7 +87,7 @@ function Checkout() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/payment/checkout",
+        "/api/v1/payment/checkout",
         postData,
         {
           withCredentials: true,

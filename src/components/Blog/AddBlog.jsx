@@ -18,7 +18,7 @@ function AddBlog()
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/blog/addBlog",
+        "/api/v1/blog/addBlog",
         blog,
         {
           headers: {
