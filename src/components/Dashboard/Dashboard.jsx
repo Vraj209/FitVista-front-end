@@ -20,6 +20,7 @@ function Dashboard() {
         const response = await axios.get(
           `http://localhost:3000/api/v1/product/getProducts`,
           {
+            withCredentials:true,
             headers: {
               Authorization: `Bearer ${accessToken}`, // Assuming you use Bearer token
             },
@@ -38,6 +39,7 @@ function Dashboard() {
       const response = await axios.get(
         `http://localhost:3000/api/v1/users/totalUser`,
         {
+          withCredentials:true,
           headers: {
             Authorization: `Bearer ${accessToken}`, // Assuming you use Bearer token
           },
@@ -75,6 +77,7 @@ function Dashboard() {
         const response = await axios.get(
           `http://localhost:3000/api/v1/blog/getBlogs`,
           {
+            withCredentials:true,
             headers: {
               Authorization: `Bearer ${accessToken}`, // Assuming you use Bearer token
             },
