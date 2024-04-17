@@ -11,7 +11,7 @@ const VideoList = () => {
     useEffect(() => {
         const fetchVideos = async () => {
             try {
-                const response = await axios.get('/api/v1/training/content/videos', {
+                const response = await axios.get('http://localhost:3000/api/v1/training/content/videos', {
                     
                         withCredentials: true,
                         headers: {
@@ -38,7 +38,7 @@ const VideoList = () => {
 
     const handleDelete = async (videoId) => {
         try {
-            await axios.delete(`/api/v1/training/deletevideo/${videoId}`);
+            await axios.delete(`http://localhost:3000/api/v1/training/deletevideo/${videoId}`);
             setVideos(videos.filter(video => video._id !== videoId));
             alert('Video deleted successfully');
         } catch (error) {

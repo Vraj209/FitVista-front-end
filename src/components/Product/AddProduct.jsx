@@ -30,7 +30,7 @@ function AddProduct() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "/api/v1/product/addProduct",
+        "http://localhost:3000/api/v1/product/addProduct",
         formData
       );
       console.log("Response from adding product", response.data);

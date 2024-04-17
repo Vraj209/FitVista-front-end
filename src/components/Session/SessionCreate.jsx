@@ -24,7 +24,7 @@ function SessionCreate() {
 
     try {
       const response = await axios.post(
-        "/api/v1/trainingsession/sessions",
+        "http://localhost:3000/api/v1/trainingsession/sessions",
         sessionData,
         {
           withCredentials: true,

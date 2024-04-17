@@ -18,7 +18,7 @@ function ForgotPassword() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "/api/v1/users/forgotPassword",
+        "http://localhost:3000/api/v1/users/forgotPassword",
         user
       );
       console.log("Response from forgotPassword", response.data);

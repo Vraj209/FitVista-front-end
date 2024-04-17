@@ -16,7 +16,7 @@ function EditBlog() {
     async function fetchBlogData() {
       try {
         const response = await axios.get(
-          `/api/v1/blog/getBlog/${id}`
+          `http://localhost:3000/api/v1/blog/getBlog/${id}`
         );
         const blog = response.data.blog;
         setTitle(blog.title);
@@ -49,7 +49,7 @@ function EditBlog() {
 
     try {
       const response = await axios.put(
-        `/api/v1/blog/updateBlog/${id}`,
+        `http://localhost:3000/api/v1/blog/updateBlog/${id}`,
         formData,
         {
           headers: {
@@ -69,7 +69,7 @@ function EditBlog() {
     if (window.confirm("Are you sure you want to delete this blog?")) {
       try {
         await axios.delete(
-          `/api/v1/blog/deleteBlog/${id}`
+          `http://localhost:3000/api/v1/blog/deleteBlog/${id}`
         );
         alert("Blog deleted successfully");
         navigation("/dashboard"); // Navigate to the blog list or home page after successful update

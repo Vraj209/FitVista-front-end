@@ -10,7 +10,7 @@ const VideoDetail = () => {
     useEffect(() => {
         const fetchVideo = async () => {
             try {
-                const response = await axios.get(`/api/content/${videoId}`);
+                const response = await axios.get(`http://localhost:3000/api/content/${videoId}`);
                 setVideo(response.data.video);
             } catch (err) {
                 setError('Failed to fetch video details');

@@ -9,7 +9,7 @@ function AllProductList() {
     (async () => {
       try {
         axios
-          .get("/api/v1/product/getProducts")
+          .get("http://localhost:3000/api/v1/product/getProducts")
           .then((response) => {
             const { products } = response.data;
             setProducts(products);

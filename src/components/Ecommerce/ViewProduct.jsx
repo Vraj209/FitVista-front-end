@@ -16,7 +16,7 @@ function ViewProduct() {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `/api/v1/product/getProduct/${id}`,
+          `http://localhost:3000/api/v1/product/getProduct/${id}`,
           {
             withCredentials: true,
             headers: {
@@ -47,7 +47,7 @@ function ViewProduct() {
         image: product.image,
       };
       const response = await axios.post(
-        `/api/v1/cart/addItemtoCart`,
+        `http://localhost:3000/api/v1/cart/addItemtoCart`,
         {
           product_Data, // include other necessary fields
         },

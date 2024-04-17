@@ -10,7 +10,7 @@ function AssignTrainee() {
   useEffect(() => {
     const fetchUser = async () => {
       const response = await axios.get(
-        `/api/v1/users/totalUser`,
+        `http://localhost:3000/api/v1/users/totalUser`,
         {
           withCredentials: true,
           headers: {

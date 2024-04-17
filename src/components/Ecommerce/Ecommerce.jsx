@@ -14,7 +14,7 @@ function Ecommerce() {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          "/api/v1/product/getProducts",{withCredentials:true}
+          "http://localhost:3000/api/v1/product/getProducts",{withCredentials:true}
         );
         setProducts(response.data.products);
       } catch (error) {
