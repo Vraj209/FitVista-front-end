@@ -26,13 +26,14 @@ function Signin() {
           headers: {
             "Content-Type": "application/json",
           },
+          withCredentials: true,
         }
       );
 
       console.log("Response from signin:", response.data);
       const userData = response.data.data;
       const { token } = response.data;
-      console.log("token", token); // Renaming destructured variable to userData
+      console.log("token from signin", token); // Renaming destructured variable to userData
       console.log("data", userData);
 
       setAuth({ userData: userData, accessToken: token });
