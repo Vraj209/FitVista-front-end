@@ -52,6 +52,11 @@ import UserDashboardPage from "./pages/UserDashboardPage";
 import BlogPage from "./pages/BlogPage";
 import ViewBlog from "./components/Blog/ViewBlog";
 import { Checkout } from "./components";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+const stripePromise = loadStripe(
+  "pk_test_51Oem2RAo3oN6wD2ebj9Lulfc7dkPO1nmHKvcrdQTSv0KzkErpbKoOcyZilUROh5U55JwJXL1IBvEVM3rDEA4sqxm001EhM1B5D"
+);
 const router = createBrowserRouter([
   { path: "/", element: <HomePage /> },
   { path: "/signin", element: <Login /> },
@@ -70,9 +75,17 @@ const router = createBrowserRouter([
   { path: "/viewProduct/:id", element: <ViewProductPage /> },
   { path: "/ecommerce", element: <EcommercePage /> },
   { path: "/ecommerce/cart", element: <Cart /> },
-  { path: "/ecommerce/checkout", element: <Checkout /> },
-  { path: "/ecommerce/success", element: <Success /> },
-  { path: "/ecommerce/failure", element: <Failure /> },
+
+  {
+    path: "/ecommerce/checkout",
+    element: (
+      <Elements stripe={stripePromise}>
+        <Checkout />
+      </Elements>
+    ),
+  },
+  { path: "/success", element: <Success /> },
+  { path: "/failure", element: <Failure /> },
 
   { path: "/userData", element: <UserData /> },
   { path: "/user/:id", element: <ViewUser /> },
