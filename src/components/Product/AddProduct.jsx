@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Sidebar } from "../index";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-function AddProduct() {
+import {AuthContext} from "../../contexts/AuthProvider";
+function AddProduct()
+{
+  const { auth, setAuth } = useContext(AuthContext);
+  const { userData, accessToken } = auth;
   const [formData, setFormData] = useState({
     name: "",
     price: "",
@@ -31,7 +35,12 @@ function AddProduct() {
       setLoading(true);
       const response = await axios.post(
         "http://localhost:3000/api/v1/product/addProduct",
-        formData
+        formData, {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
       );
       console.log("Response from adding product", response.data);
       alert("Product added successfully");

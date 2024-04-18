@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Sidebar } from "../index";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 function EditProduct() {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const navigate = useNavigate();
-
+  const { auth, setAuth } = useContext(AuthContext);
+  const { userData, accessToken } = auth;
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -29,7 +31,13 @@ function EditProduct() {
     try {
       const response = await axios.put(
         `http://localhost:3000/api/v1/product/updateProduct/${id}`,
-        product
+        product,
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
       );
       console.log("Response from updating product", response.data);
       alert("Product updated successfully");
@@ -42,7 +50,13 @@ function EditProduct() {
   const deleteHandler = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:3000/api/v1/product/deleteProduct/${id}`
+        `http://localhost:3000/api/v1/product/deleteProduct/${id}`,
+        {
+          withCredentials: true,
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
       );
       console.log("Response from deleting product", response.data);
       alert("Product deleted successfully");

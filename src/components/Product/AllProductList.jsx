@@ -1,15 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Sidebar } from "../index";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { AuthContext } from "../../contexts/AuthProvider";
 function AllProductList() {
   // Replace this with your actual data
   const [products, setProducts] = useState([]);
+  const { auth, setAuth } = useContext(AuthContext);
+  const { userData, accessToken } = auth;
   useEffect(() => {
     (async () => {
       try {
         axios
-          .get("http://localhost:3000/api/v1/product/getProducts")
+          .get("http://localhost:3000/api/v1/product/getProducts", {
+            withCredentials: true,
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          })
           .then((response) => {
             const { products } = response.data;
             setProducts(products);
