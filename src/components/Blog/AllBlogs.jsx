@@ -1,14 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Sidebar } from "../index";
 import { Link } from "react-router-dom";
-
-function AllBlogs() {
+import { AuthContext } from "../../contexts/AuthProvider";
+function AllBlogs()
+{
+  const { auth, setAuth } = useContext(AuthContext);
+  const { accessToken } = auth;
   const [blogs, setBlogs] = useState([]);
   useEffect(() => {
     async function fetchBlogs() {
       try {
-        const response = await axios.get("http://localhost:3000/api/v1/blog/getBlogs");
+        const response = await axios.get(
+          "http://localhost:3000/api/v1/blog/getBlogs",
+          {
+            withCredentials:true,
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        );
         setBlogs(response.data.blogs);
         fetchBlogs();
       } catch (error) {
