@@ -48,8 +48,8 @@ function Home() {
             </span>
           </h4>
           <h2 className="mt-5  text-4xl w-2/3  font-bold text-black text-center">
-            Grow your fitness brand,engage clients, and sell
-            you programms - all in one place
+            Grow your fitness brand,engage clients, and sell you programms - all
+            in one place
           </h2>
           <p className="mt-5 text-xl text-black">
             Empower Your Journey, Transform Your Life
@@ -57,9 +57,19 @@ function Home() {
           <button className="w-1/5 bg-black mt-12">
             Try FitVista for free
           </button>
-          <p>No credit card needed.</p>
+          <p className="mt-3 text-gray-600">No credit card needed.</p>
         </section>
       </div>
+
+      <section className="mt-32 flex flex-col justify-center items-center">
+        <h1 className="text-3xl font-bold">About FitVista</h1>
+        <p className="w-2/3 text-center text-lg mt-3 text-gray-500">
+          We are team of developers and wellness advocates passionate about
+          simplifying digital fitness. FitVista was built to empower trainers,
+          coaches, and creators to run a complete fitness business without tech
+          headaches.
+        </p>
+      </section>
 
       {/* Black Overlay */}
       {/* <div className="absolute top-0 left-0 right-0 bottom-0 bg-black opacity-50"></div> */}
@@ -67,81 +77,14 @@ function Home() {
       {/* Navbar inside hero section */}
 
       {/* Services Section */}
-      <div className="bg-white py-20">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center text-gray-800 mb-8">
-            Our Services
-          </h2>
-          <div className="flex flex-wrap">
-            {/* Service Item */}
-            <div className="w-full sm:w-1/2 lg:w-1/3 px-4 py-6">
-              <div className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-blue-500 hover:to-cyan-500 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 rounded-lg shadow-lg p-6 text-white">
-                <h3 className="text-2xl font-bold mb-2">Personal Training</h3>
-                <p>
-                  One-on-one training sessions tailored to your unique fitness
-                  goals, ensuring personalized attention and maximized results.
-                </p>
-              </div>
-            </div>
-            <div className="w-full sm:w-1/2 lg:w-1/3 px-4 py-6">
-              <div className="bg-gradient-to-r from-green-500 to-teal-500 hover:from-teal-500 hover:to-green-500 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 rounded-lg shadow-lg p-6 text-white">
-                <h3 className="text-2xl font-bold mb-2">Group Training</h3>
-                <p>
-                  Engage in fun and challenging workout sessions with a
-                  community of peers, led by experienced trainers to keep you
-                  motivated.
-                </p>
-              </div>
-            </div>
-            <div className="w-full sm:w-1/2 lg:w-1/3 px-4 py-6">
-              <div className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 rounded-lg shadow-lg p-6 text-white">
-                <h3 className="text-2xl font-bold mb-2">
-                  Pre-Recorded Sessions
-                </h3>
-                <p>
-                  Access a library of pre-recorded workout sessions anytime,
-                  anywhere, to fit your schedule and keep your fitness journey
-                  on track.
-                </p>
-              </div>
-            </div>
-            <div className="w-full sm:w-1/2 lg:w-1/3 px-4 py-6">
-              <div className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-orange-500 hover:to-yellow-500 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 rounded-lg shadow-lg p-6 text-white">
-                <h3 className="text-2xl font-bold mb-2">Ecommerce</h3>
-                <p>
-                  Discover our curated selection of fitness gear and nutrition
-                  supplements to support your fitness journey and lifestyle.
-                </p>
-              </div>
-            </div>
-            <div className="w-full sm:w-1/2 lg:w-1/3 px-4 py-6">
-              <div className="bg-gradient-to-r from-red-500 to-pink-500 hover:from-pink-500 hover:to-red-500 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 rounded-lg shadow-lg p-6 text-white">
-                <h3 className="text-2xl font-bold mb-2">Informative Blogs</h3>
-                <p>
-                  Stay informed and inspired with our extensive library of
-                  fitness and wellness articles, tips, and success stories.
-                </p>
-              </div>
-            </div>
-
-            {/* Affordable Membership */}
-            <div className="w-full sm:w-1/2 lg:w-1/3 px-4 py-6">
-              <div className="bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-indigo-500 hover:to-blue-500 transition-all duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 rounded-lg shadow-lg p-6 text-white">
-                <h3 className="text-2xl font-bold mb-2">
-                  Affordable Membership
-                </h3>
-                <p>
-                  Unlock full access to all our features with affordable
-                  membership plans designed to fit every budget and fitness
-                  level.
-                </p>
-              </div>
-            </div>
-            {/* Repeating Service Items for other services */}
-            {/* Consider copying the above div and modifying the content for other services like Nutrition Planning, Online Coaching, etc. */}
-          </div>
+      <section>
+        <div>
+          <h1>Everything you need to succeed</h1>
+          <p>
+            Powerful feature designed specifically for fitness professionals
+          </p>
         </div>
-      </div>
+      </section>
       {/* Membership Plans Section */}
 
       {/* Membership Plans Section - Improved Design */}
