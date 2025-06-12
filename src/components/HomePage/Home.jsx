@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import "@fontsource/inter";
 function Home() {
   const { auth, setAuth } = useContext(AuthContext);
   const { userData, accessToken } = auth;
@@ -10,58 +11,61 @@ function Home() {
     setAuth({ userData: null, accessToken: null });
   };
   return (
-    <div>
+    <>
       {/* hero section */}
-      <div
-        className="relative flex items-center justify-start h-screen bg-gray-100"
-        style={{
-          backgroundImage:
-            'url("https://images.unsplash.com/photo-1637666218229-1fe0a9419267?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',
-          backgroundSize: "cover", // Ensure the image covers the full section
-          backgroundPosition: "center", // Center the background image
-        }}
-      >
-        {/* Black Overlay */}
-        <div className="absolute top-0 left-0 right-0 bottom-0 bg-black opacity-50"></div>
-
-        {/* Navbar inside hero section */}
-
-        <div className="absolute top-0 left-0 right-0 p-5 flex justify-between items-center text-white z-20">
+      <div>
+        <header className="flex justify-between items-center text-black p-5">
           <div className="text-2xl font-bold">FitVista</div>
-          <div className="flex space-x-5">
-            <Link to="/services" className="text-xl">
-              Services
+          <div className="flex gap-5 border-2 p-2 pl-5 pr-5 rounded-xl">
+            <Link to="/services" className="text-base">
+              <p>Services</p>
             </Link>
-            <Link to="/blogs" className="text-xl">
-              Blogs
+            <Link to="/blogs" className="text-base">
+              <p>Blogs</p>
             </Link>
-            <Link to="/aboutUs" className="text-xl">
-              About Us
+            <Link to="/aboutUs" className="text-base">
+              <p>About Us</p>
             </Link>
-            <Link to="/contactUs" className="text-xl">
-              Contact Us
+            <Link to="/contactUs" className="text-base">
+              <p>Contact us</p>
             </Link>
-
-            <Link to="/profile" className="text-xl">
-              {userData.role}
+          </div>
+          <div>
+            <Link to="/profile" className="text-base">
+              {userData}
             </Link>
-            <button onClick={logout} className="text-xl">
+            <button onClick={logout} className="text-base bg-black">
               Logout
             </button>
           </div>
-        </div>
+        </header>
 
         {/* Content */}
-        <div className="text-left p-10 ml-10 lg:ml-20 z-10">
-          <h1 className="text-6xl font-bold text-white">
-            Welcome to fitVista{" "}
-            {userData && userData.firstName ? ` ${userData.firstName}` : ""}!
-          </h1>
-          <p className="mt-5 text-2xl text-white">
+        <section className="flex flex-col items-center justify-center w-full mt-24 font-">
+          <h4>
+            <span className="text-green-800 bg-green-300 p-2 pl-5 pr-5 rounded-full">
+              For fitness coaches & wellness creators
+            </span>
+          </h4>
+          <h2 className="mt-5  text-4xl w-2/3  font-bold text-black text-center">
+            Grow your fitness brand,engage clients, and sell
+            you programms - all in one place
+          </h2>
+          <p className="mt-5 text-xl text-black">
             Empower Your Journey, Transform Your Life
           </p>
-        </div>
+          <button className="w-1/5 bg-black mt-12">
+            Try FitVista for free
+          </button>
+          <p>No credit card needed.</p>
+        </section>
       </div>
+
+      {/* Black Overlay */}
+      {/* <div className="absolute top-0 left-0 right-0 bottom-0 bg-black opacity-50"></div> */}
+
+      {/* Navbar inside hero section */}
+
       {/* Services Section */}
       <div className="bg-white py-20">
         <div className="container mx-auto px-6">
@@ -201,8 +205,8 @@ function Home() {
             {/* Testimonial Card 1 */}
             <div className="max-w-sm bg-white rounded-lg shadow-md p-6">
               <p className="text-gray-600 italic">
-                "Joining fitVista was the best decision for my health. The
-                community and trainers are incredibly supportive."
+                Joining fitVista was the best decision for my health. The
+                community and trainers are incredibly supportive.
               </p>
               <div className="mt-4">
                 <p className="font-bold text-lg">Alex Johnson</p>
@@ -213,8 +217,8 @@ function Home() {
             {/* Testimonial Card 2 */}
             <div className="max-w-sm bg-white rounded-lg shadow-md p-6">
               <p className="text-gray-600 italic">
-                "The variety of workouts and nutrition plans transformed my
-                lifestyle. I've never felt better!"
+                The variety of workouts and nutrition plans transformed my
+                lifestyle. I have never felt better!
               </p>
               <div className="mt-4">
                 <p className="font-bold text-lg">Samantha Lee</p>
@@ -225,8 +229,8 @@ function Home() {
             {/* Testimonial Card 3 */}
             <div className="max-w-sm bg-white rounded-lg shadow-md p-6">
               <p className="text-gray-600 italic">
-                "Their personalized fitness plans and tracking tools helped me
-                reach my goals in record time."
+                Their personalized fitness plans and tracking tools helped me
+                reach my goals in record time.
               </p>
               <div className="mt-4">
                 <p className="font-bold text-lg">Michael Brown</p>
@@ -267,7 +271,7 @@ function Home() {
           </div>
         </div>
       </footer>
-    </div>
+    </>
   );
 }
 
