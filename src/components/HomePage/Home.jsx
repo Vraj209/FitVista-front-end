@@ -26,9 +26,9 @@ function Home() {
     <>
       {/* hero section */}
       <div>
-        <header className="flex justify-between items-center text-black p-5">
+        <header className="flex justify-between items-center text-black p-5 ">
           <div className="text-2xl font-bold">FitVista</div>
-          <div className="flex gap-5 border-2 p-2 pl-5 pr-5 rounded-xl">
+          <div className="flex gap-5 border-2 p-2 pl-5 pr-5 rounded-xl border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0">
             <Link to="/services" className="text-base">
               <p>Services</p>
             </Link>
@@ -60,8 +60,10 @@ function Home() {
             </span>
           </h4>
           <h2 className="mt-5  text-4xl w-2/3  font-bold text-black text-center">
-            Grow your fitness brand,engage clients, and sell you programms - all
-            in one place
+            Grow your fitness brand,engage clients, and sell you programms{" "}
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              all in one place
+            </span>
           </h2>
           <p className="mt-5 text-xl text-black">
             Empower Your Journey, Transform Your Life
@@ -200,130 +202,144 @@ function Home() {
         </div>
       </section>
 
-      {/* Membership Plans Section - Improved Design */}
-      <div className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
-            Choose Your Plan
-          </h2>
-          <div className="flex flex-wrap items-center justify-center gap-6 -mx-4">
-            {/* Budget Membership Plan */}
-            <div className="w-full md:w-1/3 px-4">
-              <div className="p-6 rounded-lg shadow-lg bg-gradient-to-tr from-blue-500 to-blue-300 hover:shadow-xl transition duration-500 transform hover:scale-105">
-                <h3 className="text-xl font-semibold text-white mb-2">
-                  Silver Membership
-                </h3>
-                <p className="text-md text-blue-100 mb-4">
-                  Start your fitness journey with essential features.
+      <section>
+        <div className="bg-gray-100 py-20">
+          <div className="container mx-auto px-6">
+            <h2 className="text-4xl font-bold text-center text-gray-800 mb-8">
+              Hear From Our Happy Users
+            </h2>
+            <div className="flex flex-wrap justify-center gap-6">
+              {/* Testimonial Card 1 */}
+              <div className="max-w-sm bg-white rounded-lg shadow-md p-6">
+                <p className="text-gray-600 italic">
+                  Joining fitVista was the best decision for my health. The
+                  community and trainers are incredibly supportive.
                 </p>
-                <ul className="text-sm text-blue-100 mb-6">
-                  <li>✔ Basic workout library</li>
-                  <li>✔ Community access</li>
-                </ul>
-                <p className="text-lg font-bold text-white mb-4">$19 / month</p>
-                <button className="mt-4 px-4 py-2 bg-white text-blue-500 font-bold rounded hover:bg-gray-100 transition-colors duration-300">
-                  Get Started
-                </button>
+                <div className="mt-4">
+                  <p className="font-bold text-lg">Alex Johnson</p>
+                  <p className="text-gray-400">Enthusiastic Member</p>
+                </div>
               </div>
-            </div>
 
-            {/* Gold Membership Plan */}
-            <div className="w-full md:w-1/3 px-4">
-              <div className="p-6 rounded-lg shadow-lg bg-gradient-to-tr from-green-500 to-green-300 hover:shadow-xl transition duration-500 transform hover:scale-105">
-                <h3 className="text-xl font-semibold text-white mb-2">
-                  Gold Membership
-                </h3>
-                <p className="text-md text-green-100 mb-4">
-                  Everything in Budget, plus more advanced features.
+              {/* Testimonial Card 2 */}
+              <div className="max-w-sm bg-white rounded-lg shadow-md p-6">
+                <p className="text-gray-600 italic">
+                  The variety of workouts and nutrition plans transformed my
+                  lifestyle. I have never felt better!
                 </p>
-                <ul className="text-sm text-green-100 mb-6">
-                  <li>✔ Unlimited class access</li>
-                  <li>✔ One to one coaching plans</li>
-                  <li>✔ Monthly coaching sessions</li>
-                  <li>✔ 10% off on products</li>
-                </ul>
-                <p className="text-lg font-bold text-white mb-4">$49 / month</p>
-                <button className="mt-4 px-4 py-2 bg-white text-green-500 font-bold rounded hover:bg-gray-100 transition-colors duration-300">
-                  Get Started
-                </button>
+                <div className="mt-4">
+                  <p className="font-bold text-lg">Samantha Lee</p>
+                  <p className="text-gray-400">Lifestyle Change Advocate</p>
+                </div>
+              </div>
+
+              {/* Testimonial Card 3 */}
+              <div className="max-w-sm bg-white rounded-lg shadow-md p-6">
+                <p className="text-gray-600 italic">
+                  Their personalized fitness plans and tracking tools helped me
+                  reach my goals in record time.
+                </p>
+                <div className="mt-4">
+                  <p className="font-bold text-lg">Michael Brown</p>
+                  <p className="text-gray-400">Goal Achiever</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      {/* user say */}
-      <div className="bg-gray-100 py-20">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center text-gray-800 mb-8">
-            Hear From Our Happy Users
-          </h2>
-          <div className="flex flex-wrap justify-center gap-6">
-            {/* Testimonial Card 1 */}
-            <div className="max-w-sm bg-white rounded-lg shadow-md p-6">
-              <p className="text-gray-600 italic">
-                Joining fitVista was the best decision for my health. The
-                community and trainers are incredibly supportive.
-              </p>
-              <div className="mt-4">
-                <p className="font-bold text-lg">Alex Johnson</p>
-                <p className="text-gray-400">Enthusiastic Member</p>
-              </div>
-            </div>
+      </section>
 
-            {/* Testimonial Card 2 */}
-            <div className="max-w-sm bg-white rounded-lg shadow-md p-6">
-              <p className="text-gray-600 italic">
-                The variety of workouts and nutrition plans transformed my
-                lifestyle. I have never felt better!
-              </p>
-              <div className="mt-4">
-                <p className="font-bold text-lg">Samantha Lee</p>
-                <p className="text-gray-400">Lifestyle Change Advocate</p>
-              </div>
-            </div>
+      <section className="h-auto p-16">
+        <div className=" flex flex-col gap-2 items-center ">
+          <h1 className="font-bold text-4xl mt-5">Success Story</h1>
+          <h4 className="text-gray-500">John Bootcamp transformation</h4>
 
-            {/* Testimonial Card 3 */}
-            <div className="max-w-sm bg-white rounded-lg shadow-md p-6">
-              <p className="text-gray-600 italic">
-                Their personalized fitness plans and tracking tools helped me
-                reach my goals in record time.
+          <div className="border-2 w-2/3  p-10  rounded-lg shadow-lg border-white">
+            <div className="flex flex-col gap-1">
+              <h1 className="font-bold text-lg ">
+                John switched from 3 separate tools to FitVista
+              </h1>
+              <p className="text-gray-500 mt-2">
+                In just 2 months, here is what happened:
               </p>
-              <div className="mt-4">
-                <p className="font-bold text-lg">Michael Brown</p>
-                <p className="text-gray-400">Goal Achiever</p>
+            </div>
+            <div className="mt-8 grid grid-cols-1 md:grid-cols-3 text-center">
+              <div>
+                <h1 className="text-4xl font-bold text-green-500">+40%</h1>
+                <h4 className="text-gray-500">Revenue Increase</h4>
+              </div>
+              <div>
+                <h1 className="text-4xl font-bold text-green-500">+80%</h1>
+                <h4 className="text-gray-500">Engagement rate</h4>
+              </div>
+              <div>
+                <h1 className="text-4xl font-bold text-green-500">+100%</h1>
+                <h4 className="text-gray-500">Content centralized</h4>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <section className="h-auto py-16">
+        <div className="container flex flex-col gap-5 justify-center items-center w-full">
+          <div>
+            <h1 className="font-bold text-4xl">Simple, transparent pricing</h1>
+            <h4 className="text-center text-gray-500 mt-2">
+              Start free, upgrade when you are ready
+            </h4>
+          </div>
+          <div className="border-2 rounded-lg p-10 mt-10 shadow-xl">
+            <div className="text-center flex flex-col gap-1">
+              <h1 className="font-bold text-2xl">Free Trial</h1>
+              <h4 className="text-gray-500 text-base">
+                No credit card required
+              </h4>
+              <h1 className="font-bold text-4xl">Free</h1>
+              <h4 className="text-gray-500 mt-5">
+                Premium plans start at $19/month with:
+              </h4>
+            </div>
+            <div className="flex flex-col gap-2 pt-4 text-left">
+              <h4>Unlimited live sessions</h4>
+              <h4>Full e-commerce features</h4>
+              <h4>Advanced analytics</h4>
+              <h4>Priority support</h4>
+              <button className="mt-5 bg-purple-500">
+                Start Your Free Trial
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* footer */}
-      <footer className="bg-gray-900 text-white">
-        <div className="container mx-auto px-6 py-8">
-          <div className="sm:flex sm:justify-between">
-            <div>
-              <h3 className="font-bold text-xl">fitVista</h3>
-              <p className="text-gray-400 mt-2">
-                Empowering Your Fitness Journey, One Step at a Time
-              </p>
-            </div>
-            <div className="mt-4 sm:mt-0">
-              <h3 className="font-bold">Contact & Follow Us</h3>
-              <p className="mt-2">Email: support@fitvista.com</p>
-              <div className="flex mt-3">
-                <a href="#" className="mr-4 hover:text-gray-300">
-                  Facebook
-                </a>
-                <a href="#" className="mr-4 hover:text-gray-300">
-                  Twitter
-                </a>
-                <a href="#" className="hover:text-gray-300">
-                  Instagram
-                </a>
-              </div>
-            </div>
+
+      <footer className=" bg-black text-white ">
+        <div className="relative w-full h-[500px]">
+          <img
+            src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Background"
+            className="w-full h-full object-cover rounded-3xl p-4 shadow-lg drop-shadow-lg"
+          />
+          <div className="absolute text-white inset-0 bg-black/40 flex  flex-col items-center justify-center space-y-7">
+            <h1 className="text-4xl font-mono">
+              {" "}
+              Platform for Fitness Entrepreneurs
+            </h1>
+            <input
+              type="text"
+              placeholder="Start your journey with email"
+              className="rounded-full p-2 w-1/3 text-black pl-5"
+            />
+            <button className="w-1/3">Join Newsletter</button>
           </div>
-          <div className="text-center text-gray-400 mt-6 border-t border-gray-700 pt-4">
-            © 2024 fitVista. All rights reserved.
+
+          <div className="grid grid-cols-4">
+            <div>
+              <h1>FitVista</h1>
+              <h4>Built fot fitness coaches & wellness creators</h4>
+            </div>
           </div>
         </div>
       </footer>
