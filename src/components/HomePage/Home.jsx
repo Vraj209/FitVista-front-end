@@ -25,8 +25,8 @@ function Home() {
   return (
     <>
       {/* hero section */}
-      <div>
-        <header className="flex justify-between items-center text-black p-5 ">
+      <div className="bg-gradient-to-br from-purple-50 via-white to-pink-50 h-full">
+        <header className="flex justify-between items-center text-black p-5 sticky">
           <div className="text-2xl font-bold">FitVista</div>
           <div className="flex gap-5 border-2 p-2 pl-5 pr-5 rounded-xl border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0">
             <Link to="/services" className="text-base">
@@ -42,20 +42,29 @@ function Home() {
               <p>Contact us</p>
             </Link>
           </div>
-          <div>
+          <div className="flex gap-2">
             <Link to="/profile" className="text-base">
               {userData}
             </Link>
-            <button onClick={logout} className="text-base bg-black">
+            <button
+              onClick={logout}
+              className="text-sm font-medium bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition"
+            >
               Logout
+            </button>
+            <button
+              onClick={logout}
+              className="text-sm font-medium bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-md whitespace-nowrap "
+            >
+              Try Free Trial
             </button>
           </div>
         </header>
 
         {/* Content */}
-        <section className="flex flex-col items-center justify-center w-full mt-24 font-">
+        <section className="flex flex-col items-center justify-center w-full mt-24 pb-5">
           <h4>
-            <span className="text-green-800 bg-green-300 p-2 pl-5 pr-5 rounded-full">
+            <span className="text-purple-800 bg-purple-300 p-2 pl-5 pr-5 rounded-full">
               For fitness coaches & wellness creators
             </span>
           </h4>
@@ -68,14 +77,15 @@ function Home() {
           <p className="mt-5 text-xl text-black">
             Empower Your Journey, Transform Your Life
           </p>
-          <button className="w-1/5 bg-black mt-12">
+          <button className="w-1/5 bg-gradient-to-r from-purple-600 to-pink-600 mt-12">
             Try FitVista for free
           </button>
           <p className="mt-3 text-gray-600">No credit card needed.</p>
         </section>
       </div>
 
-      <section className="mt-10 flex flex-col justify-center items-center bg-[#F9FAFB] h-[350px] w-full">
+      {/* About Section */}
+      <section className=" flex flex-col justify-center items-center bg-[#F9FAFB] h-[350px] w-full">
         <h1 className="text-3xl font-bold">About FitVista</h1>
         <p className="w-2/3 text-center text-lg mt-3 text-gray-500">
           We are team of developers and wellness advocates passionate about
@@ -85,6 +95,7 @@ function Home() {
         </p>
       </section>
 
+      {/* Features Section */}
       <section className="mt-14">
         <div className="flex flex-col gap-3 justify-center items-center">
           <h1 className="text-3xl font-bold">Everything you need to succeed</h1>
@@ -126,6 +137,7 @@ function Home() {
         </div>
       </section>
 
+      {/* Why Choose Section */}
       <section className="p-8">
         <div className="mt-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white h-[450px] w-full flex flex-col items-center  shadow-xl rounded-lg p-3">
           <div className="flex flex-col  items-center gap-3 mt-28">
@@ -152,6 +164,7 @@ function Home() {
         </div>
       </section>
 
+      {/* How Its works */}
       <section className="mt-14 bg-gradient-to-br from-white via-pink-50 to-fuchsia-100 py-10">
         <div className="flex flex-col items-center gap-3">
           <h1 className="font-bold text-4xl">How it works</h1>
@@ -202,6 +215,7 @@ function Home() {
         </div>
       </section>
 
+      {/* Testimonial */}
       <section>
         <div className="bg-gray-100 py-20">
           <div className="container mx-auto px-6">
@@ -249,6 +263,7 @@ function Home() {
         </div>
       </section>
 
+      {/* Success Story */}
       <section className="h-auto p-16">
         <div className=" flex flex-col gap-2 items-center ">
           <h1 className="font-bold text-4xl mt-5">Success Story</h1>
@@ -281,6 +296,61 @@ function Home() {
         </div>
       </section>
 
+      {/* Comaprison */}
+      <section className="py-16 px-4 md:px-20 bg-gray-50 ">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
+          How we compare
+        </h2>
+
+        <div className="overflow-auto">
+          <table className="min-w-full text-left  border-gray-200 rounded-xl overflow-hidden">
+            <thead>
+              <tr className="bg-white border-b">
+                <th className="px-6 py-4 text-gray-700 font-semibold">
+                  Feature
+                </th>
+                <th className="px-6 py-4 text-purple-600 font-bold">
+                  FitVista
+                </th>
+                <th className="px-6 py-4 text-gray-800 font-semibold">
+                  Kajabi
+                </th>
+                <th className="px-6 py-4 text-gray-800 font-semibold">
+                  Zoom + Stripe
+                </th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
+              <tr>
+                <td className="px-6 py-4">Live sessions</td>
+                <td className="px-6 py-4">✅</td>
+                <td className="px-6 py-4 text-gray-500">Add-on</td>
+                <td className="px-6 py-4">✅</td>
+              </tr>
+              <tr>
+                <td className="px-6 py-4">E-commerce store</td>
+                <td className="px-6 py-4">✅</td>
+                <td className="px-6 py-4">✅</td>
+                <td className="px-6 py-4 text-gray-400">❌</td>
+              </tr>
+              <tr>
+                <td className="px-6 py-4 ">Admin dashboard</td>
+                <td className="px-6 py-4 ">✅</td>
+                <td className="px-6 py-4">✅</td>
+                <td className="px-6 py-4 text-gray-400">❌</td>
+              </tr>
+              <tr>
+                <td className="px-6 py-4">Custom branding</td>
+                <td className="px-6 py-4">✅</td>
+                <td className="px-6 py-4">✅</td>
+                <td className="px-6 py-4 text-gray-400">❌</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Pricing card */}
       <section className="h-auto py-16">
         <div className="container flex flex-col gap-5 justify-center items-center w-full">
           <div>
@@ -289,7 +359,7 @@ function Home() {
               Start free, upgrade when you are ready
             </h4>
           </div>
-          <div className="border-2 rounded-lg p-10 mt-10 shadow-xl">
+          <div className="border-2 rounded-lg p-10 mt-10 shadow-xl border-black">
             <div className="text-center flex flex-col gap-1">
               <h1 className="font-bold text-2xl">Free Trial</h1>
               <h4 className="text-gray-500 text-base">
@@ -301,45 +371,104 @@ function Home() {
               </h4>
             </div>
             <div className="flex flex-col gap-2 pt-4 text-left">
-              <h4>Unlimited live sessions</h4>
-              <h4>Full e-commerce features</h4>
-              <h4>Advanced analytics</h4>
-              <h4>Priority support</h4>
-              <button className="mt-5 bg-purple-500">
-                Start Your Free Trial
-              </button>
+              <h4>✅ Unlimited live sessions</h4>
+              <h4>✅ Full e-commerce features</h4>
+              <h4>✅ Advanced analytics</h4>
+              <h4>✅ Priority support</h4>
+              <button className="mt-5 bg-black">Start Free Trial Here</button>
+              <p className="text-center text-gray-500">
+                No credit card required
+              </p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* FAQs */}
+      <section className="py-16 px-6 md:px-20 bg-white">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
+          Frequently Asked Questions
+        </h2>
+        <div className="max-w-3xl mx-auto space-y-4">
+          {[
+            {
+              q: "Is there a free trial?",
+              a: "Yes! We offer a 14-day free trial with full access to all features. No credit card needed.",
+            },
+            {
+              q: "Can I cancel anytime?",
+              a: "Absolutely. You're free to cancel your subscription at any time from your dashboard.",
+            },
+            {
+              q: "Is FitVista suitable for small teams?",
+              a: "Yes. Whether you're a solo coach or a small team, FitVista scales with your business.",
+            },
+          ].map(({ q, a }, idx) => (
+            <details
+              key={idx}
+              className="border border-gray-200 rounded-md p-4"
+            >
+              <summary className="font-semibold cursor-pointer">{q}</summary>
+              <p className="mt-2 text-gray-600">{a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
       {/* footer */}
 
-      <footer className=" bg-black text-white ">
-        <div className="relative w-full h-[500px]">
-          <img
-            src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Background"
-            className="w-full h-full object-cover rounded-3xl p-4 shadow-lg drop-shadow-lg"
-          />
-          <div className="absolute text-white inset-0 bg-black/40 flex  flex-col items-center justify-center space-y-7">
-            <h1 className="text-4xl font-mono">
-              {" "}
-              Platform for Fitness Entrepreneurs
-            </h1>
-            <input
-              type="text"
-              placeholder="Start your journey with email"
-              className="rounded-full p-2 w-1/3 text-black pl-5"
+      <footer className=" bg-black text-white rounded-t-3xl overflow-hidden ">
+        <div className="space-x-1 w-full h-full">
+          <div className="object-cover p-4 rounded-2xl overflow-hidden pt-6">
+            <img
+              src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?q=80&w=1988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Background"
+              className="shadow-lg drop-shadow-lg w-full h-full object-cover rounded-3xl"
             />
-            <button className="w-1/3">Join Newsletter</button>
           </div>
-
-          <div className="grid grid-cols-4">
+          <div className="flex justify-between  p-4">
             <div>
-              <h1>FitVista</h1>
-              <h4>Built fot fitness coaches & wellness creators</h4>
+              <h1 className="text-2xl font-bold pb-2">FitVista</h1>
+              <h4 className="text-gray-500 text-base">
+                Built for fitness entrepreneurs who want to scale their impact.
+              </h4>
             </div>
+            <div>
+              <h3 className="text-2xl font-bold pb-2">Explore</h3>
+              <ul className="text-gray-500 text-base space-y-1">
+                <li>Features</li>
+                <li>Pricing</li>
+                <li>About</li>
+                <li>Blog</li>
+                <li>Case Studies</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold pb-2">Support</h3>
+              <ul className="text-gray-500 text-base space-y-1">
+                <li>Help Center</li>
+                <li>Contact Us</li>
+                <li>Live Chat</li>
+                <li>Documentation</li>
+                <li>API Reference</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold pb-2">Follow us</h3>
+              <ul className="text-gray-500 text-base space-y-1">
+                <li>Instagram</li>
+                <li>Twitter</li>
+                <li>LinkedIn</li>
+                <li>Facebook</li>
+                <li>YouTube</li>
+              </ul>
+            </div>
+          </div>
+          <div className="w-full h-[200px] overflow-hidden relative ">
+            <h1 className=" transition-all duration-300 ease-in-out absolute top-[-80px]  w-full font-bold text-center text-[280px] text-gray-500 ">
+              FitVista
+            </h1>
           </div>
         </div>
       </footer>

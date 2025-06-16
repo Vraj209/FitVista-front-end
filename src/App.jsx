@@ -1,10 +1,9 @@
-import React from "react";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-    <h1>Signin</h1>
+      <h1>Signin</h1>
     </div>
   );
 }
