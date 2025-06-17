@@ -13,6 +13,7 @@ import {
   DollarSign,
   Users,
   Zap,
+  ArrowRight,
 } from "lucide-react";
 function Home() {
   const { auth, setAuth } = useContext(AuthContext);
@@ -27,7 +28,9 @@ function Home() {
       {/* hero section */}
       <div className="bg-gradient-to-br from-purple-50 via-white to-pink-50 h-full">
         <header className="flex justify-between items-center text-black p-5 sticky">
-          <div className="text-2xl font-bold">FitVista</div>
+          <div className="text-2xl font-bold  bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent ">
+            FitVista
+          </div>
           <div className="flex gap-5 border-2 p-2 pl-5 pr-5 rounded-xl border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0">
             <Link to="/services" className="text-base">
               <p>Services</p>
@@ -54,15 +57,15 @@ function Home() {
             </button>
             <button
               onClick={logout}
-              className="text-sm font-medium bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-md whitespace-nowrap "
+              className="text-sm font-medium bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-md whitespace-nowrap flex gap-3 items-center justify-between "
             >
-              Try Free Trial
+              Try Free Trial <ArrowRight />
             </button>
           </div>
         </header>
 
         {/* Content */}
-        <section className="flex flex-col items-center justify-center w-full mt-24 pb-5">
+        <section className="flex flex-col items-center justify-center w-full mt-24 pb-12">
           <h4>
             <span className="text-purple-800 bg-purple-300 p-2 pl-5 pr-5 rounded-full">
               For fitness coaches & wellness creators
@@ -74,11 +77,11 @@ function Home() {
               all in one place
             </span>
           </h2>
-          <p className="mt-5 text-xl text-black">
-            Empower Your Journey, Transform Your Life
+          <p className="mt-5 text-xl text-gray-600">
+            FitVista helps you coach, connect, and monetize with ease
           </p>
-          <button className="w-1/5 bg-gradient-to-r from-purple-600 to-pink-600 mt-12">
-            Try FitVista for free
+          <button className="w-1/5 bg-gradient-to-r from-purple-600 to-pink-600 mt-12 flex gap-3 items-center justify-between">
+            Try FitVista for free <ArrowRight />
           </button>
           <p className="mt-3 text-gray-600">No credit card needed.</p>
         </section>
@@ -359,7 +362,7 @@ function Home() {
               Start free, upgrade when you are ready
             </h4>
           </div>
-          <div className="border-2 rounded-lg p-10 mt-10 shadow-xl border-black">
+          <div className="border-2 rounded-lg p-10 mt-10 shadow-xl border-purple-400">
             <div className="text-center flex flex-col gap-1">
               <h1 className="font-bold text-2xl">Free Trial</h1>
               <h4 className="text-gray-500 text-base">
@@ -375,10 +378,10 @@ function Home() {
               <h4>✅ Full e-commerce features</h4>
               <h4>✅ Advanced analytics</h4>
               <h4>✅ Priority support</h4>
-              <button className="mt-5 bg-black">Start Free Trial Here</button>
-              <p className="text-center text-gray-500">
-                No credit card required
-              </p>
+              <button className="mt-5 bg-gradient-to-r from-purple-600 to-pink-600 flex justify-between">
+                Start Free Trial Here <ArrowRight />
+              </button>
+              <p className="text-left text-gray-500">No credit card required</p>
             </div>
           </div>
         </div>
@@ -417,7 +420,7 @@ function Home() {
 
       {/* footer */}
 
-      <footer className=" bg-black text-white rounded-t-3xl overflow-hidden ">
+      <footer className=" bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-t-3xl overflow-hidden ">
         <div className="space-x-1 w-full h-full">
           <div className="object-cover p-4 rounded-2xl overflow-hidden pt-6">
             <img
@@ -429,13 +432,13 @@ function Home() {
           <div className="flex justify-between  p-4">
             <div>
               <h1 className="text-2xl font-bold pb-2">FitVista</h1>
-              <h4 className="text-gray-500 text-base">
+              <h4 className=" text-base">
                 Built for fitness entrepreneurs who want to scale their impact.
               </h4>
             </div>
             <div>
               <h3 className="text-2xl font-bold pb-2">Explore</h3>
-              <ul className="text-gray-500 text-base space-y-1">
+              <ul className=" text-base space-y-1">
                 <li>Features</li>
                 <li>Pricing</li>
                 <li>About</li>
@@ -446,7 +449,7 @@ function Home() {
 
             <div>
               <h3 className="text-2xl font-bold pb-2">Support</h3>
-              <ul className="text-gray-500 text-base space-y-1">
+              <ul className=" text-base space-y-1">
                 <li>Help Center</li>
                 <li>Contact Us</li>
                 <li>Live Chat</li>
@@ -456,7 +459,7 @@ function Home() {
             </div>
             <div>
               <h3 className="text-2xl font-bold pb-2">Follow us</h3>
-              <ul className="text-gray-500 text-base space-y-1">
+              <ul className=" text-base space-y-1">
                 <li>Instagram</li>
                 <li>Twitter</li>
                 <li>LinkedIn</li>
@@ -466,7 +469,7 @@ function Home() {
             </div>
           </div>
           <div className="w-full h-[200px] overflow-hidden relative ">
-            <h1 className=" transition-all duration-300 ease-in-out absolute top-[-80px]  w-full font-bold text-center text-[280px] text-gray-500 ">
+            <h1 className=" transition-all duration-300 ease-in-out absolute top-[-80px]  w-full font-bold text-center text-[280px] text-wihite ">
               FitVista
             </h1>
           </div>
