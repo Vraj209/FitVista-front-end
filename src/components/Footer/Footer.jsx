@@ -50,7 +50,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="w-full h-[200px] overflow-hidden relative ">
-            <h1 className=" transition-all duration-300 ease-in-out absolute top-[-80px]  w-full font-bold text-center text-[280px] text-wihite ">
+            <h1 className=" transition-all duration-300 ease-in-out absolute top-[-80px]  w-full font-bold text-center text-[280px] text-wihite shadow-lg ">
               FitVista
             </h1>
           </div>
