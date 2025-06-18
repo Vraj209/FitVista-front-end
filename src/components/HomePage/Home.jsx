@@ -14,7 +14,11 @@ import {
 } from "lucide-react";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
+
+
 function Home() {
+  
+  
   return (
     <>
       <Header />
@@ -36,9 +40,10 @@ function Home() {
             FitVista helps you coach, connect, and monetize with ease
           </p>
           <button className="w-1/5 bg-gradient-to-r from-purple-600 to-pink-600 mt-12 flex gap-3 items-center justify-between pl-4">
-            Try FitVista for free <ArrowRight />
+            Try FitVista for free <ArrowRight /> 
           </button>
           <p className="mt-3 text-gray-600">No credit card needed.</p>
+         
         </section>
 
         {/* About Section */}
